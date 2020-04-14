@@ -1,0 +1,14 @@
+name: "My site"
+output_dir: "docs"
+navbar:
+  title: "R for statistics"
+  left:
+  - text: "index"
+   href: index.html
+  - text: "exercises 1"
+   href: exercises_1.html
+  - text: "exercises 2"
+   href: exercises_2.html
+output:
+  html_document:
+ theme: cosmo
