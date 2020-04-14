@@ -1,0 +1,14 @@
+name: "R for statistics"
+output_dir: "docs"
+navbar:
+  title: "R for statistics"
+  left:
+  - text: "Home"
+   href: index.html
+  - text: "Speed and Distance"
+   href: exercise_sheet_1.html
+  - text: "Speed"
+   href: exercise_sheet_2.html
+output:
+  html_document:
+ theme: cosmo
