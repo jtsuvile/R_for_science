@@ -7,10 +7,10 @@ navbar:
       icon: fa-home  # handy way to use FontAwesome icons in nav!
       href: index.html  # don't link to the .Rmd file
     - text: "Exercises 1"
-      icon: fa-newspaper-o
+#      icon: fa-newspaper-o
       href: exercise_sheet_1.html
     - text: "Exercises 2"
-      icon: fa-newspaper-o
+#      icon: fa-newspaper-o
       href: exercise_sheet_2.html
 output:
   html_document:

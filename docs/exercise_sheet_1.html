@@ -11,7 +11,7 @@
 
 
 
-<title>Exercises 1</title>
+<title>Exercise set 1</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -281,18 +281,10 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="exercise_sheet_1.html">
-    <span class="fa fa-newspaper-o"></span>
-     
-    Exercises 1
-  </a>
+  <a href="exercise_sheet_1.html">Exercises 1</a>
 </li>
 <li>
-  <a href="exercise_sheet_2.html">
-    <span class="fa fa-newspaper-o"></span>
-     
-    Exercises 2
-  </a>
+  <a href="exercise_sheet_2.html">Exercises 2</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -306,29 +298,105 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Exercises 1</h1>
+<h1 class="title toc-ignore">Exercise set 1</h1>
 
 </div>
 
 
-<div id="exercise-sheet-1" class="section level2">
-<h2>Exercise sheet 1</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="learning-goals" class="section level2">
+<h2>Learning goals</h2>
+<p>After completing these tasks you’ll be able to follow and carry out the other tasks on this course. You will be able to run code from the command line and script in RStudio, create variables, assign values to variables, run functions, load and use packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.</p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="exercise_sheet_1_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="how-to-use-r" class="section level2">
+<h2>1.1. How to use R</h2>
+<div id="calculations" class="section level3">
+<h3>Calculations</h3>
+<p>Q1.1.1 Try to run the following commands on the command line (bottom left)</p>
+<p><code>1+1</code></p>
+<p><code>24/6</code></p>
+<p><code>10-5-1</code></p>
+<p><code>5-10/2</code></p>
+<p>Q1.1.2 What do you notice about the order of the calculations? Can you use brackets to control the order of calculations as you would expect?</p>
+<p>Q1.1.3 Now try to run some simple calculations from the script window (top left).</p>
+<p>Tip: To run just one line of the script, you can use the run-button at the top of the script window or, more simply, press command + enter (on mac) or control + enter (on windows). Vocabulary: Running a command simply means that you ask R to execute the command. You can do it both from the command line (as in Q1.1.1) or from the script (as in Q1.1.3). Both are fine, but it is much harder to save &amp; return to what you ran on the command line, so I recommend you to mainly work from the script, even if you then never return to it!</p>
+</div>
+<div id="variables" class="section level3">
+<h3>Variables</h3>
+<p>Q1.1.4 create a simple variable by running</p>
+<p><code>x &lt;- 1</code></p>
+<p>Then only run</p>
+<p><code>x</code></p>
+<p>What does the program output?</p>
+<p>Tip: For some reason it’s common to use &lt;- for variable assignment in R, so we’ll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use ‘=’ if you’d prefer.</p>
+<p>Q1.1.5 Try doing some arithmetic operations including x. For example <code>x+5</code>. Is the output what you would expect?</p>
+<p>Q1.1.6 Try to assign an arithmetic operation to a variable called y. Does the variable save the operation or the end result of the operation?</p>
+<p>Q1.1.7 Try adding together variables <code>x</code> and <code>y</code>, and assign the result to a variable called <code>z</code>.</p>
+<p>Q1.1.8 If you just run <code>z+10</code>, this will not change the value of z. If you wanted to save the result of the calculation in z, how would you do that?</p>
+<p>Tip: Variable names have to start with a letter. They can also include numbers, underscores, and dots. They cannot include spaces or other special characters.</p>
+</div>
+<div id="functions" class="section level3">
+<h3>Functions</h3>
+<p>Q1.1.9 Run</p>
+<p><code>a &lt;- sum(1,2,3)</code></p>
+<p>Q1.1.10 Which part of the above statement is the <em>function</em>, <em>argument</em> and what is the <em>output</em> (also called result)?</p>
+<p>Q1.1.11 Is the output what you would expect?</p>
+<p>Q1.1.12 Try running the function <code>getwd()</code>, which does not take any arguments. Can you guess what the output tells you?</p>
+<p>Q1.1.13 Run <code>?getwd()</code> to see if you were correct.</p>
+<p>Tip: Remember that parentheses (and quotation marks) must always come in a pair. When you forget one quotation mark or parenthesis (which happens to all of us at some point), R tells you it’s expecting more input by showing “+” on the console. If this happens, you can just type in the missing symbol and press enter. To cancel out what you’ve typed, press the escape key on Windows or Ctrl-C on OS X or Linux.</p>
+</div>
+</div>
+<div id="simple-data-types" class="section level2">
+<h2>1.2. Simple data types</h2>
+<div id="numbers-numeric" class="section level3">
+<h3>Numbers (“numeric”)</h3>
+<p>Q1.2.1 The function <code>typeof()</code> takes one argument, which is the object whose type (class) you want to find out. Use the function to check the class of the following:</p>
+<p><code>x</code></p>
+<p><code>5.1</code></p>
+<p><code>pi</code></p>
+<p><code>2L</code></p>
+</div>
+<div id="characters-text" class="section level3">
+<h3>Characters (text)</h3>
+<p>Q 1.2.2 Use the same function as above to find out the class of</p>
+<p><code>'abc'</code></p>
+<p>Tip: To separate character values from variable names, characters are specified in R by putting them between ’’ (single quotes) or “” (double quotes).</p>
+<p>Q1.2.3 Try running</p>
+<pre class="r"><code>s &lt;- &#39;abc&#39;
+s+5</code></pre>
+<p>Why do you think this does not work? (Hint: it has to do with data types)</p>
+</div>
+<div id="logical-boolean-i.e.true-or-false" class="section level3">
+<h3>Logical (Boolean, i.e. TRUE or FALSE)</h3>
+<p>Q1.2.4 Run <code>5 &gt; 4</code>. Is the resulting logical value what you would expect? What if you run <code>5 &lt; 4</code>?</p>
+<p>Q1.2.5 Use your variables x, y and z and logical operators greater than (&gt;), less than (&lt;) and equals (==) to make a logical statement which will evaluate to (output) FALSE and another statement which evaluates to TRUE.</p>
+<p>Tip: Since “=” is used to assign variables, in programming you need to use “==” (two equals signs) to check whether two things are equal. Other logical operators include <code>!=</code> (is not equal to), <code>&lt;=</code> (less than or equal to), <code>&gt;=</code> (greater than or equal to)</p>
+</div>
+<div id="vectors" class="section level3">
+<h3>Vectors</h3>
+<p>Q1.2.6 Run</p>
+<p><code>vec &lt;- 1:10</code></p>
+<p>What is</p>
+<p>which is a vector with the values 1, 2, and 4. The ‘c’ is short for “combine”. Question 7 Type in c(10, 20, 30) + 1. What is the result? Question 8 Assign the result of the previous expression to a variable. You can generate a regular sequence of numbers as a vector by placing a : (colon) between two numbers.</p>
+<p>Question 9 Make a vector that goes from 40 to 100.</p>
+<p>Like numbers, characters can be combined into vectors</p>
+<p>and assigned to variables my.characters &lt;- c(“a”, “b”, “c”, “d”) my.characters # check what you stored<br />
+Character strings can be used for representing some non-numerical data (like sex or place names). They are also used to tell R the location of data to retrieve.</p>
+</div>
+</div>
+<div id="operations-on-your-data" class="section level2">
+<h2>1.3 Operations on your data</h2>
+<div id="vector-arithmetic" class="section level3">
+<h3>Vector arithmetic</h3>
+<p>Question 35 Create a vector x containing the following numbers: 0, 2, 4, 6, 8, 10. Create a vector y containing the following numbers: 1, 3, 5, 7, 9, 11. Obtain the sum of both vectors. x+y Describe what happened. Try also with other arithmetic operations (-, *, /, ^).</p>
+<p>3.1 Making vectors using functions You have already encountered two ways to make a vector: c and :. There are also other efficient commands that make vectors, including seq and rep.<br />
+You can use seq to create a sequence in two ways. Try typing</p>
+<p>vector1 &lt;- seq(1,20,by=0.5) vector2 &lt;- seq(1,20,length=5) Question 10 What is the difference between the two vectors and the use of named arguments (by, length) in defining the sequence?<br />
+With rep, you can repeat values to make, for instance, a vector. Again, there are multiple ways to do this: rep(1:5, times=2) rep(1:5, times=c(3,1,1,5,2)) rep(1:5, each=3)</p>
+</div>
+</div>
+<div id="using-packages" class="section level2">
+<h2>1.5 Using packages</h2>
+<p>When you don’t know how to do something in R, the internet is the best resource to find information. Two good websites are <a href="http://www.statmethods.net" class="uri">http://www.statmethods.net</a> and <a href="http://rseek.org" class="uri">http://rseek.org</a>. Using these resources or others at your disposal (such as the built-in help system, answer the following questions: Question 39 What does the sort function do? What types of variables can you pass as arguments? Question 40 Not all functions are accessible by default. What are “packages” in R? How do you use them?</p>
 </div>
 
 

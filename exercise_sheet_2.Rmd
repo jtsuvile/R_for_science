@@ -1,5 +1,5 @@
 ---
-title: "Exercises 2"
+title: "Exercise set 2"
 output: html_document
 ---
 
@@ -7,22 +7,66 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Exercise sheet 2
+## Learning goals
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+After completing these tasks you'll be able to follow and carry out the other tasks on this course. You will be able to run code from the command line and script in RStudio, create variables, assign values to variables, run functions, load and use packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## 1.1. How to use R 
+### Calculations
 
-```{r cars}
-summary(cars)
-```
+Q1.1.1 Try to run the following commands on the command line (bottom left)
 
-## Including Plots
+`1+1`
 
-You can also embed plots, for example:
+`24/6`
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+`10-5-1`
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+`5-10/2`
+
+Q1.1.2 What do you notice about the order of the calculations? Can you use brackets to control the order of calculations as you would expect?
+
+Q1.1.3 Now try to run some simple calculations from the script window (top left). 
+
+Tip: To run just one line of the script, you can use the run-button at the top of the script window or, more simply, press command + enter (on mac) or control + enter (on windows). 
+Vocabulary: Running a command simply means that you ask R to execute the command. You can do it both from the command line (as in Q1.1.1) or from the script (as in Q1.1.3). Both are fine, but it is much harder to save & return to what you ran on the command line, so I recommend you to mainly work from the script, even if you then never return to it!
+
+### Variables
+Q1.1.4 create a simple variable by running
+
+`x <- 1`	
+
+Then only run 
+
+`x`
+
+What does the program output?
+
+Tip: For some reason it's common to use <- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' if you'd prefer. 
+
+Q1.1.5 Try doing some arithmetic operations including x. For example `x+5`. Is the output what you would expect?
+
+Q1.1.6 Try to assign an arithmetic operation to a variable called y. Does the variable save the operation or the end result of the operation?
+
+Q1.1.7 Try adding together variables `x` and `y`, and assign the result to a variable called `z`. 
+
+Q1.1.8 If you just run `z+10`, this will not change the value of z. If you wanted to save the result of the calculation in z, how would you do that?
+
+Tip: Variable names have to start with a letter. They can also include numbers, underscores, and dots. They cannot include spaces or other special characters.
+
+### Functions
+
+Q1.1.9 Run 
+
+`a <- sum(1,2,3)`
+
+Q1.1.10 Which part of the above statement is the _function_, _argument_ and what is the _output_ (also called result)?
+
+Q1.1.11 Is the output what you would expect? 
+
+Q1.1.12 Try running the function `getwd()`, which does not take any arguments. Can you guess what the output tells you?
+
+Q1.1.13 Run `?getwd()` to see if you were correct. 
+
+Tip: Remember that parentheses (and quotation marks) must always come in a pair. When you forget one quotation mark or parenthesis (which happens to all of us at some point), R tells you it's expecting more input by showing "+" on the console. If this happens, you can just type in the missing symbol and press enter. To cancel out what you've typed, press the escape key on Windows or Ctrl-C on OS X or Linux.
+

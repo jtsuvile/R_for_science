@@ -1,5 +1,5 @@
 ---
-title: "Exercises 1"
+title: "Exercise set 1"
 output: html_document
 ---
 
@@ -7,22 +7,144 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Exercise sheet 1
+## Learning goals
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+After completing these tasks you'll be able to follow and carry out the other tasks on this course. You will be able to run code from the command line and script in RStudio, create variables, assign values to variables, run functions, load and use packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## 1.1. How to use R 
+### Calculations
 
-```{r cars}
-summary(cars)
+Q1.1.1 Try to run the following commands on the command line (bottom left)
+
+`1+1`
+
+`24/6`
+
+`10-5-1`
+
+`5-10/2`
+
+Q1.1.2 What do you notice about the order of the calculations? Can you use brackets to control the order of calculations as you would expect?
+
+Q1.1.3 Now try to run some simple calculations from the script window (top left). 
+
+Tip: To run just one line of the script, you can use the run-button at the top of the script window or, more simply, press command + enter (on mac) or control + enter (on windows). 
+Vocabulary: Running a command simply means that you ask R to execute the command. You can do it both from the command line (as in Q1.1.1) or from the script (as in Q1.1.3). Both are fine, but it is much harder to save & return to what you ran on the command line, so I recommend you to mainly work from the script, even if you then never return to it!
+
+### Variables
+Q1.1.4 create a simple variable by running
+
+`x <- 1`	
+
+Then only run 
+
+`x`
+
+What does the program output?
+
+Tip: For some reason it's common to use <- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' if you'd prefer. 
+
+Q1.1.5 Try doing some arithmetic operations including x. For example `x+5`. Is the output what you would expect?
+
+Q1.1.6 Try to assign an arithmetic operation to a variable called y. Does the variable save the operation or the end result of the operation?
+
+Q1.1.7 Try adding together variables `x` and `y`, and assign the result to a variable called `z`. 
+
+Q1.1.8 If you just run `z+10`, this will not change the value of z. If you wanted to save the result of the calculation in z, how would you do that?
+
+Tip: Variable names have to start with a letter. They can also include numbers, underscores, and dots. They cannot include spaces or other special characters.
+
+### Functions
+
+Q1.1.9 Run 
+
+`a <- sum(1,2,3)`
+
+Q1.1.10 Which part of the above statement is the _function_, _argument_ and what is the _output_ (also called result)?
+
+Q1.1.11 Is the output what you would expect? 
+
+Q1.1.12 Try running the function `getwd()`, which does not take any arguments. Can you guess what the output tells you?
+
+Q1.1.13 Run `?getwd()` to see if you were correct. 
+
+Tip: Remember that parentheses (and quotation marks) must always come in a pair. When you forget one quotation mark or parenthesis (which happens to all of us at some point), R tells you it's expecting more input by showing "+" on the console. If this happens, you can just type in the missing symbol and press enter. To cancel out what you've typed, press the escape key on Windows or Ctrl-C on OS X or Linux.
+
+## 1.2. Simple data types
+### Numbers ("numeric")
+
+Q1.2.1 The function `typeof()` takes one argument, which is the object whose type (class) you want to find out. Use the function to check the class of the following:
+
+`x`
+
+`5.1`
+
+`pi`
+
+`2L`
+
+### Characters (text)
+
+Q 1.2.2 Use the same function as above to find out the class of 
+
+`'abc'`
+
+Tip: To separate character values from variable names, characters are specified in R by putting them between '' (single quotes) or "" (double quotes).
+
+Q1.2.3 Try running
+```{r eval=FALSE}
+s <- 'abc'
+s+5
 ```
+Why do you think this does not work? (Hint: it has to do with data types)
 
-## Including Plots
+### Logical (Boolean, i.e. TRUE or FALSE)
 
-You can also embed plots, for example:
+Q1.2.4 Run `5 > 4`. Is the resulting logical value what you would expect? What if you run `5 < 4`?
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+Q1.2.5 Use your variables x, y and z and logical operators greater than (>), less than (<) and equals (==) to make a logical statement which will evaluate to (output) FALSE and another statement which evaluates to TRUE.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Tip: Since "=" is used to assign variables, in programming you need to use "==" (two equals signs) to check whether two things are equal. Other logical operators include `!=` (is not equal to), `<=` (less than or equal to), `>=` (greater than or equal to)
+
+### Vectors
+
+Q1.2.6 Run 
+
+`vec <- 1:10`
+
+What is 
+
+which is a vector with the values 1, 2, and 4. The 'c' is short for "combine".
+Question 7 Type in c(10, 20, 30) + 1. What is the result?
+Question 8 Assign the result of the previous expression to a variable.
+You can generate a regular sequence of numbers as a vector by placing a : (colon) between two numbers.
+
+Question 9 Make a vector that goes from 40 to 100.
+
+Like numbers, characters can be combined into vectors
+
+and assigned to variables
+my.characters <- c("a", "b", "c", "d")
+my.characters # check what you stored					
+Character strings can be used for representing some non-numerical data (like sex or place names). They are also used to tell R the location of data to retrieve. 	
+
+## 1.3 Operations on your data				
+### Vector arithmetic
+Question 35 Create a vector x containing the following numbers: 0, 2, 4, 6, 8, 10. Create a vector y containing the following numbers: 1, 3, 5, 7, 9, 11. Obtain the sum of both vectors. x+y Describe what happened. Try also with other arithmetic operations (-, *, /, ^).
+
+3.1 Making vectors using functions
+You have already encountered two ways to make a vector: c and :. There are also other efficient commands that make vectors, including seq and rep.	
+You can use seq to create a sequence in two ways. Try typing
+
+vector1 <- seq(1,20,by=0.5)
+vector2 <- seq(1,20,length=5)
+Question 10 What is the difference between the two vectors and the use of named arguments (by, length) in defining the sequence?	
+With rep, you can repeat values to make, for instance, a vector. Again, there are multiple ways to do this:	
+rep(1:5, times=2)
+rep(1:5, times=c(3,1,1,5,2))
+rep(1:5, each=3)
+
+## 1.5 Using packages
+When you don't know how to do something in R, the internet is the best resource to find information. Two good websites are http://www.statmethods.net and http://rseek.org. Using these resources or others at your disposal (such as the built-in help system, answer the following questions:
+Question 39 What does the sort function do? What types of variables can you pass as arguments?
+Question 40 Not all functions are accessible by default. What are "packages" in R? How do you use them? 
