@@ -40,7 +40,7 @@ Then only run
 
 `x`
 
-What does the program output?
+to see what the variable value is. What does the program output?
 
 Tip: For some reason it's common to use <- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' if you'd prefer. 
 
@@ -60,7 +60,7 @@ Q1.1.9 Run
 
 `a <- sum(1,2,3)`
 
-Q1.1.10 Which part of the above statement is the _function_, _argument_ and what is the _output_ (also called result)?
+Q1.1.10 Identify _function_, _argument_ and _output_ (also called result) in the code in Q1.1.9
 
 Q1.1.11 Is the output what you would expect? 
 
@@ -69,6 +69,10 @@ Q1.1.12 Try running the function `getwd()`, which does not take any arguments. C
 Q1.1.13 Run `?getwd()` to see if you were correct. 
 
 Tip: Remember that parentheses (and quotation marks) must always come in a pair. When you forget one quotation mark or parenthesis (which happens to all of us at some point), R tells you it's expecting more input by showing "+" on the console. If this happens, you can just type in the missing symbol and press enter. To cancel out what you've typed, press the escape key on Windows or Ctrl-C on OS X or Linux.
+
+### Saving your script
+
+Q1.1.14 Make a folder on your computer for this course. Save the script file (.R) you have been working on in that folder.
 
 ## 1.2. Simple data types
 ### Numbers ("numeric")
@@ -100,51 +104,65 @@ Why do you think this does not work? (Hint: it has to do with data types)
 
 ### Logical (Boolean, i.e. TRUE or FALSE)
 
-Q1.2.4 Run `5 > 4`. Is the resulting logical value what you would expect? What if you run `5 < 4`?
-
-Q1.2.5 Use your variables x, y and z and logical operators greater than (>), less than (<) and equals (==) to make a logical statement which will evaluate to (output) FALSE and another statement which evaluates to TRUE.
+Q1.2.4 Use your variables x, y and z and logical operators greater than (>), less than (<) and equals (==) to make a logical statement which will evaluate to (output) FALSE and another statement which evaluates to TRUE.
 
 Tip: Since "=" is used to assign variables, in programming you need to use "==" (two equals signs) to check whether two things are equal. Other logical operators include `!=` (is not equal to), `<=` (less than or equal to), `>=` (greater than or equal to)
 
 ### Vectors
 
-Q1.2.6 Run 
+Q1.2.5 Run 
 
 `vec <- 1:10`
 
-What is 
+What is the output? What type is the output? 
 
-which is a vector with the values 1, 2, and 4. The 'c' is short for "combine".
-Question 7 Type in c(10, 20, 30) + 1. What is the result?
-Question 8 Assign the result of the previous expression to a variable.
-You can generate a regular sequence of numbers as a vector by placing a : (colon) between two numbers.
-
-Question 9 Make a vector that goes from 40 to 100.
-
-Like numbers, characters can be combined into vectors
-
-and assigned to variables
-my.characters <- c("a", "b", "c", "d")
-my.characters # check what you stored					
-Character strings can be used for representing some non-numerical data (like sex or place names). They are also used to tell R the location of data to retrieve. 	
-
-## 1.3 Operations on your data				
-### Vector arithmetic
-Question 35 Create a vector x containing the following numbers: 0, 2, 4, 6, 8, 10. Create a vector y containing the following numbers: 1, 3, 5, 7, 9, 11. Obtain the sum of both vectors. x+y Describe what happened. Try also with other arithmetic operations (-, *, /, ^).
-
-3.1 Making vectors using functions
-You have already encountered two ways to make a vector: c and :. There are also other efficient commands that make vectors, including seq and rep.	
-You can use seq to create a sequence in two ways. Try typing
-
-vector1 <- seq(1,20,by=0.5)
+Q1.2.6 Make the following two vectors
+```{r eval=FALSE}
+vector1 <- seq(1,20,by=5)
 vector2 <- seq(1,20,length=5)
-Question 10 What is the difference between the two vectors and the use of named arguments (by, length) in defining the sequence?	
-With rep, you can repeat values to make, for instance, a vector. Again, there are multiple ways to do this:	
-rep(1:5, times=2)
-rep(1:5, times=c(3,1,1,5,2))
-rep(1:5, each=3)
+```
+Are they the same? What did the arguments `by` and `length` do? 
 
-## 1.5 Using packages
-When you don't know how to do something in R, the internet is the best resource to find information. Two good websites are http://www.statmethods.net and http://rseek.org. Using these resources or others at your disposal (such as the built-in help system, answer the following questions:
-Question 39 What does the sort function do? What types of variables can you pass as arguments?
-Question 40 Not all functions are accessible by default. What are "packages" in R? How do you use them? 
+Hint: you can use ?seq to get the help for the function
+
+Q1.2.7 Using function seq, make a vector that goes from 40 to 100 in steps of 10 and assign it to variable called vector3.
+
+Q1.2.8 Create a vector of characters a,b,c,and d by using the function `c()` (c is short for combine). Remember to use quotation marks for the characters.
+
+#### Vector indexing
+
+Q1.2.9 Use the square bracket notation to access the second element of vector3.
+
+Tip: If you have programmed before, you may be used to indexing which begins at 0. Keep in mind that R starts indexing at 1.
+
+Q1.2.10 See if you can get R to return (output) the first and second element of vector1 using only one command
+
+Q1.2.11 Try what happens if you run 
+
+`vector1[c(TRUE, FALSE, TRUE, FALSE)]`?
+
+Q1.2.12 What about
+
+`vector1>10`? 
+
+Q1.2.13 Try to retrieve values larger than 50 but smaller than 80 from vector3 using logical indexing.
+
+Hint: you can combine logical operators with `&` (and) and  `|` (or)
+
+## 1.3 Loops
+
+Q1.3.1 Try running the following simple for loop
+```{r eval=FALSE}
+for(i in 2010:2020){
+  print(paste("Is this year ",i,"?", sep=''))
+}
+```
+
+Q1.3.2 Modify the loop above to go from 2020 to 2025
+
+Q1.3.3 Make a tiny cheerleader for yourself! Create a loop which loops over the letters in your name (you can use `strsplit('yournamehere', '')` to easily separate the letters in a string) and for each letter, it prints out "Give me an [letter]!"
+
+## 1.4 Packages
+Q1.4.1 Install package 'psych'
+Q1.4.2 Load the package with `library`
+Q1.4.3 Try to run the following command from the psych package: `describe(vector2)`. If you run the command without errors and get a list of descriptive statistics (mean, sd, median etc), it means you have successfully installed psych
