@@ -12,6 +12,12 @@ navbar:
     - text: "Exercises 2"
 #      icon: fa-newspaper-o
       href: exercise_sheet_2.html
+    - text: "Exercises 3"
+#      icon: fa-newspaper-o
+      href: exercise_sheet_3.html
+    - text: "Exercises 4"
+#      icon: fa-newspaper-o
+      href: exercise_sheet_4.html
 output:
   html_document:
       theme: flatly

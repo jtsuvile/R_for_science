@@ -1,0 +1,75 @@
+---
+title: "Exercise set 3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learning goals
+
+After completing these tasks, you'll be able to convert raw data into tidy format. You will know how to run simple analyses in R and how to find the function you need for these analyses. You will also be able to make publication quality plots using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork
+
+## 3.1 Tidy data
+Please note that it's not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Tuesday 12th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed! In the mean time, you can complete these tasks with the example data set.
+
+### Loading and inspecting data
+If your own data set is already clean, you can also practice these steps with the exercise_data_messy.csv which is available on Moodle. On the other hand, if you have raw data which needs cleaning, you can also do this on your own data set. The solutions are shown on the exercise data. You'll need to have the package tidyverse installed and loaded to work these exercises. See a handy cheat sheet for many of the commands we're using today [here](./images/data-import.pdf) 
+
+Q3.1.1 Load in your data using `read_csv`.
+
+Tip: If your csv uses semicolon (;) instead of comma as a separator, you should use read_csv2 instead. 
+
+Q3.1.2 Inspect your data as we learned last time. How many missing values? Are there any values that might be wrongly coded NA's?
+
+Tip: Look for negative values for variables which cannot be negative, like age, or much higher values than what is feasible, like BMI over 100. You can also try plotting your variables to observe very clear outliers.
+
+Q3.1.3 Fix any wrongly coded NA's. If you're changing a single value, you can use `data %>% mutate(<columnname> = na_if(<olumnname>, <valuetoreplace>))`. If you're changing multiple values, you can use `data %>% mutate(<columnname> = ifelse(<columnname>[logical expression, e.g. >100], NA, <columnname>))`
+
+Q3.1.4 Make sure all of your factors are factors. If not, transform them with `mutate`
+
+### Massaging data 
+
+Q3.1.5 See if you want to rename some columns with `rename` to make the names shorter (and therefore quicker to type). In the example data set, the first five columns could benefit from a shorter name.
+
+Q3.1.6 See if you need to gather/spread the data. In the example data set, try to convert the data to the same format as the data set from the previous exercise was (i.e. each food type has its own column).
+
+Q3.1.7 Create a new column by combining values from existing columns with `mutate`. If you're working on the example data set, you can e.g. sum values for different types of bread into a new column called 'Bread'.
+
+Q3.1.8 summary & group_by
+
+## 3.2 Better plotting
+
+Let's remake the bar chart from last set of exercises, but this time with ggplot2.
+
+Q3.2.1 Start by making a basic histogram 
+```{r eval=FALSE}
+ggplot(data, aes(x=Freshveg)) +
+  geom_histogram()
+```
+
+Q3.2.2 Make sure you understand the different components of this function call. What does "aes" refer to? What happens if you remove the "+" at the end of the first row?
+
+Q3.2.3 Ask the visuals to show boys and girls separately by adding `fill=sex` (assuming you renamed co_Gender to sex in Q3.1.5).
+
+Q3.2.4 Oops, looks like ggplot will by default stack the bars and not show them side by side. You can solve this by adding `position="identity"` as an argument for `geom_histogram`.
+
+Q3.2.5 In some cases you can now only see the colour which is plotted on top. To make the bars slightly see-through, add `alpha=0.5` in the call for `geom_histogram`. You can also try to give other values between 0 and 1 to alpha. Will larger numbers make it more see-through or more solid?
+
+Q3.2.6 To get the plot to show probability density instead of number of responses in a bin, add `aes(y=..density..)` to geom_histogram.
+
+Q3.2.7 Add title to the plot and axis labels with `labs(title="Consumption of fresh vegetables", x="Times per week", y = "Density")`
+
+Tip: Remember that with ggplot, adding new elements happens by adding a + at the end of your previously last line and then adding the new function call below
+
+Q3.2.8 Now we get to the fun part! You can change the look of the plot by choosing a theme. Look at the themes here https://ggplot2.tidyverse.org/reference/ggtheme.html#examples and apply one of them to your plot.
+
+Q3.2.9 We can easily add other elements to the plot. For example, adding `geom_density(alpha=0.2)` as a new function will overlay probability density function for our data.
+To superimpose a normal distribution curve, we can add `stat_function(fun = dnorm, n = 101, args = list(mean = mean(data$Freshveg, na.rm=T), sd = sd(data$Freshveg, na.rm=T)), colour='red')`
+
+Q3.2.10 Now save the plot.
+
+Tip: You cann either put your `pdf()` and `dev.off()` calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with `p1 <- ggplot` etc.) 
+
+Q

@@ -11,7 +11,7 @@
 
 
 
-<title>Index</title>
+<title>Exercise set 3</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -304,29 +304,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Index</h1>
+<h1 class="title toc-ignore">Exercise set 3</h1>
 
 </div>
 
 
-<div id="index-page" class="section level2">
-<h2>Index page</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="learning-goals" class="section level2">
+<h2>Learning goals</h2>
+<p>After completing these tasks, you’ll be able to convert raw data into tidy format. You will know how to run simple analyses in R and how to find the function you need for these analyses. You will also be able to make publication quality plots using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork</p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="index_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="tidy-data" class="section level2">
+<h2>3.1 Tidy data</h2>
+<p>Please note that it’s not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Tuesday 12th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed! In the mean time, you can complete these tasks with the example data set.</p>
+</div>
+<div id="loading-and-inspecting-data" class="section level2">
+<h2>Loading and inspecting data</h2>
+<p>If your own data set is already clean, you can also practice these steps with the exercise_data_messy.csv which is available on Moodle. On the other hand, if you have raw data which needs cleaning, you can also do this on your own data set. The solutions are shown on the exercise data. You’ll need to have the package tidyverse installed and loaded to work these exercises. See a handy cheat sheet for many of the commands we’re using today <a href="./images/data-import.pdf">here</a></p>
+<p>Q3.1.1 Load in your data using <code>read_csv</code>.</p>
+<p>Tip: If your csv uses semicolon (;) instead of comma as a separator, you should use read_csv2 instead.</p>
+<p>Q3.1.2 Inspect your data as we learned last time. How many missing values? Are there any values that might be wrongly coded NA’s?</p>
+<p>Tip: Look for negative values for variables which cannot be negative, like age, or much higher values than what is feasible, like BMI over 100. You can also try plotting your variables to observe very clear outliers.</p>
+<p>Q3.1.3 Fix any wrongly coded NA’s. If you’re changing a single value, you can use <code>data %&gt;% mutate(&lt;columnname&gt; = na_if(&lt;olumnname&gt;, &lt;valuetoreplace&gt;))</code>. If you’re changing multiple values, you can use <code>data %&gt;% mutate(&lt;columnname&gt; = ifelse(&lt;columnname&gt;[logical expression, e.g. &gt;100], NA, &lt;columnname&gt;))</code></p>
+</div>
+<div id="massaging-data" class="section level2">
+<h2>Massaging data</h2>
+<p>Q3.1.4 Create a new column by combining values from existing columns with <code>mutate</code>. If you’re working on the example data set, you can e.g. sum values for different types of bread into a new column called ‘Bread’.</p>
+<p>Q3.1.5</p>
 </div>
 
 

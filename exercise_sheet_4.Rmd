@@ -1,5 +1,5 @@
 ---
-title: "Exercise set 2"
+title: "Exercise set 4"
 output: html_document
 ---
 
@@ -25,7 +25,7 @@ Tip: you need to create 9 random numbers and then give the resulting vector as a
 
 Q2.1.5 Print out the 2-by-2 matrix which consists of rows 2 and 3 and columns 2 and 3 of the larger matrix in Q2.1.4.
 
-### Lists
+## Lists
 Q2.1.6 Create a list whose elements are your matrices from Q2.1.2 and Q2.1.4.
 
 Q2.1.7 Through the list, access the first element of the first matrix.

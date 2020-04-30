@@ -28,9 +28,6 @@ Q1.1.2 What do you notice about the order of the calculations? Can you use brack
 
 Q1.1.3 Now try to run some simple calculations from the script window (top left). 
 
-Tip: To run just one line of the script, you can use the run-button at the top of the script window or, more simply, press command + enter (on mac) or control + enter (on windows). 
-Vocabulary: Running a command simply means that you ask R to execute the command. You can do it both from the command line (as in Q1.1.1) or from the script (as in Q1.1.3). Both are fine, but it is much harder to save & return to what you ran on the command line, so I recommend you to mainly work from the script, even if you then never return to it!
-
 ### Variables
 Q1.1.4 create a simple variable by running
 
@@ -42,7 +39,7 @@ Then only run
 
 to see what the variable value is. What does the program output?
 
-Tip: For some reason it's common to use <- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' if you'd prefer. 
+Tip: For some reason it's common to use <- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' for variable assignment if you'd prefer. 
 
 Q1.1.5 Try doing some arithmetic operations including x. For example `x+5`. Is the output what you would expect?
 
@@ -52,8 +49,6 @@ Q1.1.7 Try adding together variables `x` and `y`, and assign the result to a var
 
 Q1.1.8 If you just run `z+10`, this will not change the value of z. If you wanted to save the result of the calculation in z, how would you do that?
 
-Tip: Variable names have to start with a letter. They can also include numbers, underscores, and dots. They cannot include spaces or other special characters.
-
 ### Functions
 
 Q1.1.9 Run 
@@ -61,6 +56,8 @@ Q1.1.9 Run
 `a <- sum(1,2,3)`
 
 Q1.1.10 Identify _function_, _argument_ and _output_ (also called result) in the code in Q1.1.9
+
+Tip: Keep in mind, that you need to add a comma between different arguments to a function. Otherwise you will get an error.
 
 Q1.1.11 Is the output what you would expect? 
 
@@ -100,7 +97,9 @@ Q1.2.3 Try running
 s <- 'abc'
 s+5
 ```
-Why do you think this does not work? (Hint: it has to do with data types)
+Why do you think this does not work? (Hint: it has to do with data types.)
+
+Tip: When you want to run multiple lines of code, you can select them with your mouse and then press 'run' (or the shortcut keys)
 
 ### Logical (Boolean, i.e. TRUE or FALSE)
 
@@ -160,7 +159,11 @@ for(i in 2010:2020){
 
 Q1.3.2 Modify the loop above to go from 2020 to 2025
 
-Q1.3.3 Make a tiny cheerleader for yourself! Create a loop which loops over the letters in your name (you can use `strsplit('yournamehere', '')` to easily separate the letters in a string) and for each letter, it prints out "Give me an [letter]!"
+Q1.3.3 Make a loop which sums together values from 1 to 100 and in the end, prints out the result. Make sure you got the correct answer by checking your result with sum(). (This is a fairly difficult task if you do not have any programming experience.)
+
+Hint: You should start by defining a variable and setting it to zero outside of the loop, and then change the value of this variable each loop iteration. 
+
+Hint2: If you get stuck, there's no shame in googling to get ideas how to accomplish something you don't know how to do in R! 
 
 ## 1.4 Packages
 Q1.4.1 Install package 'psych'
