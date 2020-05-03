@@ -18,6 +18,9 @@ navbar:
     - text: "Exercises 4"
 #      icon: fa-newspaper-o
       href: exercise_sheet_4.html
+    - text: "Final assignment"
+#      icon: fa-newspaper-o
+      href: exercise_sheet_5.html
 output:
   html_document:
       theme: flatly

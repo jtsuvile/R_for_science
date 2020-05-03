@@ -1,5 +1,5 @@
 ---
-title: "Index"
+title: "Home"
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
@@ -12,22 +12,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Index page
+This is where you will find all of the exercises related to the R for data analysis course. There are four exercise sets in total, corresponding to four sets of lecture/demo videos, and a final assignment which is relevant to those of you who wish to get course credits for this course. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+New exercise sets will be revealed at the same time as the new lecture videos are uploaded to Moodle. If you have any questions, please use the Moodle forums to ask them.

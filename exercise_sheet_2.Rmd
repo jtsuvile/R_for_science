@@ -101,7 +101,7 @@ Do you understand what this code does? What does the parameter freq control? Wha
 
 Tip: You can try to comment out lines or change the input values to see what changes
 
-Q2.2.21 Try to make a scatter plot which shows BMI as a function of age. You can also practice adding axis labels, a title, and changing other graphical parameters if you'd like. Save the resulting plot.
+Q2.2.21 Make a scatter plot which shows BMI as a function of age. You can also practice adding axis labels, a title, and changing other graphical parameters if you'd like. Save the resulting plot.
 
 Tip: If you want to color by categorical variable, in scatter plots it is easier than with histograms. You just need to add `col=as.integer(data$co_EDUC_fam_clas)` (or any other factor vector) as an argument. 
 

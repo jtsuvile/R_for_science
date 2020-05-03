@@ -1,0 +1,31 @@
+---
+title: "Final assignment"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This assignment is the only part of your course completion which will be checked by the instructor. You should complete this task and return it on Moodle by 29th May 2020 in order to get the course credits.
+
+## Assignment
+
+Create altogether three analyses and publication quality figures from your own data, using an exclusively R workflow. 
+
+## Details
+You should return three items which you could include in the results section of a paper. One of the items must be a figure and one must be an analysis (simple or complex), while the third item can be either. You can use the same data for all three or use different data sets for all, whichever you prefer. The analyses and figures can be related (e.g. an ANOVA and interaction plot), but they don't have to be.
+
+**For figures**, make sure your plot type conveys the relevant information. Make sure the texts, such as axis labels, tick marks, and legends, are a good size and understandable to a naive reader. Pay attention to selecting the theme (if using ggplot), colours, and element sizes. **For analyses**, make sure the type of analysis you run can answer the question you are asking, and that your data fulfils the necessary requirements for that type of analysis (e.g. number of observations, distribution of variables, amount of missing values). If you run multiple tests to answer a single hypothesis (e.g. multiple t-tests for different types of foods), remember to do multiple comparison correction.
+
+## Handing in the assignment
+You should return one .zip folder to Moodle. This should contain the **code** and the **final result(s)** for your analyses as described below. 
+
+### Code
+Include clearly commented code for your data handling and analysis and figure creation as .R file(s). For analyses, comment in the code the reasoning why this analysis is appropriate (what requirements does the analysis place on your data and how your data complies with these, with tests if necessary). You do not need to include data, but make sure your code makes clear what operations you do to your data.
+
+### Results
+Include a pdf with one paragraph briefly(!) explaining the data you're working with and outcomes of the three items you created. For figures, you should include the figure itself and a caption, specifying any analyses which might be part of the figure (e.g. comparing two groups: which analysis was used, how is significance defined). For analyses, you should include the sentence(s) you would write about this analysis in the methods section and the sentence(s) or table which you would use in the results section to describe your outcome. 
+
+## Grading 
+Pass/fail.
