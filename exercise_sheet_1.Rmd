@@ -159,13 +159,13 @@ for(i in 2010:2020){
 
 Q1.3.2 Modify the loop above to go from 2020 to 2025
 
-Q1.3.3 Make a loop which sums together values from 1 to 100 and in the end, prints out the result. Make sure you got the correct answer by checking your result with sum(). (This is a fairly difficult task if you do not have any programming experience.)
+Q1.3.3 Make a loop which sums together values from 1 to 100 and in the end, prints out the result. Make sure you got the correct answer by checking your result with sum(). (This can be a fairly difficult task if you do not have any programming experience.)
 
-Hint: You should start by defining a variable and setting it to zero outside of the loop, and then change the value of this variable each loop iteration. 
-
-Hint2: If you get stuck, there's no shame in googling to get ideas how to accomplish something you don't know how to do in R! 
+Hint: If you get stuck, there's no shame in googling to get ideas how to accomplish something you don't know how to do in R! 
 
 ## 1.4 Packages
 Q1.4.1 Install package 'psych'
+
 Q1.4.2 Load the package with `library`
+
 Q1.4.3 Try to run the following command from the psych package: `describe(vector2)`. If you run the command without errors and get a list of descriptive statistics (mean, sd, median etc), it means you have successfully installed psych
