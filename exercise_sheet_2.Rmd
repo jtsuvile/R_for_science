@@ -9,5 +9,5 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning goals
 
-After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements
+After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements
 
