@@ -11,7 +11,7 @@
 
 
 
-<title>Error_code</title>
+<title>Webinar 2 tasks</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -296,10 +296,7 @@ $(document).ready(function () {
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
 <li>
-  <a href="error_code.html">Webinar 2 task 1</a>
-</li>
-<li>
-  <a href="mystery_code.html">Webinar 2 task 2</a>
+  <a href="error_code.html">Webinar 2 tasks</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -313,11 +310,13 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Error_code</h1>
+<h1 class="title toc-ignore">Webinar 2 tasks</h1>
 
 </div>
 
 
+<div id="code-with-lots-of-errors" class="section level2">
+<h2>Code with lots of errors</h2>
 <pre class="r"><code># Start with a clean environment (you can use the broom image on 
 # RStudio or run rm(list=ls())
 
@@ -344,8 +343,37 @@ vect2 &lt;- rnorm(20, mean=0, st.dev=5)
 
 # Q7
 for(i in 1:5{
-  print(&quot;The number is&quot;, ı)
+  print(&quot;The number is&quot;, l)
 }</code></pre>
+</div>
+<div id="mystery-code" class="section level2">
+<h2>Mystery code</h2>
+<pre class="r"><code># Can you (together with your group) figure out what
+# this code does? Can you find ways to make the code shorter?
+
+data1 &lt;- rnorm(100)
+data2 &lt;- rnorm(100)
+data3 &lt;- rnorm(100)
+
+data &lt;- c(data1, data2)
+data &lt;- c(data, data3)
+
+x &lt;- sum(is.na(data))
+y &lt;- data &lt; 0
+z &lt;- data &gt; 0
+
+hist(data)
+
+hist(data, col=&#39;red&#39;)
+
+hist(data, col=&#39;red&#39;, breaks=15)
+
+hist(data, col=&#39;red&#39;, breaks=15, main=&#39;Histogram of normally distributed data&#39;)</code></pre>
+<pre class="r"><code># You can get the same output with just
+data &lt;- rnorm(300)
+hist(data, col=&#39;red&#39;, breaks=15, main=&#39;Histogram of normally distributed data&#39;)</code></pre>
+<p><img src="error_code_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
 
 
 

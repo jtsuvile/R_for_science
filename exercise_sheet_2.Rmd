@@ -11,3 +11,121 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements
 
+## 2.1. More data structures
+Q2.1.1 Create three vectors called x,y,z, each of them numeric and 4 elements long. Try to use a different function for creating each.
+
+### Matrices
+Q2.1.2 Join these three vectors together using the command `cbind()`.
+
+Q2.1.3 Print out (onto the screen) the third value on the second row using square bracket notation.
+
+Q2.1.4 Use the function `matrix()` to create a 3-by-3 matrix filled with uniformly distributed random numbers (runif). 
+
+Tip: you need to create 9 random numbers and then give the resulting vector as a parameter to matrix function, defining the number of rows and/or columns.
+
+Q2.1.5 Print out the 2-by-2 matrix which consists of rows 2 and 3 and columns 2 and 3 of the larger matrix in Q2.1.4.
+
+### Lists
+Q2.1.6 Create a list whose elements are your matrices from Q2.1.2 and Q2.1.4.
+
+Q2.1.7 Through the list, access the first element of the first matrix.
+
+## 2.2 Working with data
+### Loading data
+Q2.2.1 Download the exercise data to your local computer.
+
+Q2.2.2 Load the csv file with the command `data <- read.csv([yourfilelocation], sep=';')`.
+
+### First looks at your data
+Q2.2.3 Take an initial look at the data by printing out the first five rows with `head`.
+
+Q2.2.4 Print out the last 10 rows with `tail`. You need to explicitly give an argument to get 10 instead of 5, can you find out from the help what that parameter is called?
+
+Q2.2.5 Get some summary statistics with `summary`.
+
+Q2.2.6 Load the package 'psych' and get a different kind of summary statistics representation with `describe`. Note: You should already have psych installed if you did the last set of exercises.
+
+### Indexing a data frame
+Q2.2.7 Use square brackets to access the 7th row.
+
+Q2.2.8 Use $ indexing to access the co_Gender column.
+
+Q2.2.9 Can you spot what is wrong with the data in Q2.2.7 and Q2.2.8?
+
+Q2.2.10 Convert categorical variables to factors with with factor(). For gender, 1=female, 2=male. For education level, 1=low, 2=middle, 3=high.
+
+Q2.2.11 Run summary again, see what has changed in summary for the columns you made into factors.
+
+Q2.2.12 Use square bracket notation and a vector of column names to access age, gender, education level and Healthy_pattern for all rows.
+
+### Plotting
+
+Q2.2.13 Run `plot(data[,c('Age_calculated','Healthy_pattern')])`, look at the resulting plot, and then run `plot(data[,c('co_EDUC_fam_clas','Healthy_pattern')])`. You used the same command, why do the plots look different? 
+
+Tip: You can use the arrows at the top of plot viewer to view earlier plots you've made. We will go over combining multiple plots in the same figure next week.
+
+Q2.2.14 Let's build a histogram of the use of fresh vegetables in this sample! Start by running `hist(data$Freshveg)`
+
+Q2.2.15 Looks like we need more bars to get a better look, add parameter `breaks=20`. You can play around with the number to find one which feels good to you.
+
+Q2.2.16 Try adding x and y axis labels with `xlab="Fresh vegetable consumption frequency (times per week)"` and `ylab="Number of participants"`
+
+Q2.2.17 Add title to your plot with the parameter `main`
+
+Q2.2.18 Add a colour to the bars with `col`. 
+Tip: You can get a list of acceptable colour name strings with `colours()` (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you're just looking up what options you have and once you've decided, you do not need to run the check again). You can also define your own rgb colour with rgb()
+
+Q2.2.19 Once you're happy with your plot, save it as a pdf-file. 
+
+Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device.
+
+Q2.2.20 Run the following code
+```{r eval=FALSE}
+with(data, hist(Freshveg[co_Gender=='male'], 
+                col=rgb(0,0,1,0.5), 
+                breaks=0:35, 
+                freq=F, 
+                xlim=c(0,35),
+                xlab="Fresh vegetable consumption frequency (times per week)", 
+                ylab="Number of participants", 
+                main="Fresh vegetable use"))
+with(data, hist(Freshveg[co_Gender=='female'], 
+                col=rgb(1,0,0,0.5), 
+                breaks=0:35, 
+                freq=F, 
+                add=T))
+legend("topright", legend=c("Girls", "Boys"),
+       col=c(rgb(1,0,0,0.5), rgb(0,0,1,0.5)), lwd=10)
+```
+Do you understand what this code does? What does the parameter freq control? What about the parameter add?
+
+Tip: You can try to comment out lines or change the input values to see what changes
+
+Q2.2.21 Make a scatter plot which shows BMI as a function of age. You can also practice adding axis labels, a title, and changing other graphical parameters if you'd like. Save the resulting plot.
+
+Tip: If you want to color by categorical variable, in scatter plots it is easier than with histograms. You just need to add `col=as.integer(data$co_EDUC_fam_clas)` (or any other factor vector) as an argument. 
+
+## 2.3 If-else structure
+
+Q2.3.1 Run the following loop
+```{r eval=FALSE}
+# an example loop for going over 20 first rows of the data set
+for(row in 1:20){ # if you wanted to go over the whole data set, you would set the end to be nrow(data)
+  if (is.na(data$Chocolate[row])){
+    cat(paste0("We do not know if subject ", data$ID_number[row], " eats chocolate.\n"))
+  } else if (data$Chocolate[row]==0){
+    cat(paste0("Subject ", data$ID_number[row], " does not eat chocolate.\n"))
+  } else {
+    cat(paste0("Subject ", data$ID_number[row], " eats chocolate.\n"))
+  }
+}
+```
+
+Q2.3.2 Edit the loop above so that if the subject eats chocolate and their weekly chocolate consumption is more than the average amount (function mean, remember to use na.rm=T) it will output "Subject X eats more than average amount of chocolate per week" and if they eat less than the average amount, it will ouput "Subject X eats less than average amount of chocolate per week"
+
+Q2.3.3 Create a new loop which goes over each row of your data frame. For each row, the loop will print "This is subject number " + the subject's ID number
+
+Q2.3.4 Continue building the loop by adding another sentence to the output. If the subject is male, the loop should print "He is X years old." and if the subject is female, it should print "She is X years old." If the subject's gender is not known (is.na), it should print out "They are X years old."
+
+Tip: Control for NA first, otherwise you will get an error when the loop encounters its first NA.
+

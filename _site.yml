@@ -21,12 +21,9 @@ navbar:
     - text: "Final assignment"
 #      icon: fa-newspaper-o
       href: exercise_sheet_5.html
-    - text: "Webinar 2 task 1"
+    - text: "Webinar 2 tasks"
 #      icon: fa-newspaper-o
       href: error_code.html
-    - text: "Webinar 2 task 2"
-#      icon: fa-newspaper-o
-      href: mystery_code.html
 output:
   html_document:
       theme: flatly
