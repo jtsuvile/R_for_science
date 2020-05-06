@@ -11,7 +11,7 @@
 
 
 
-<title>Exercise set 3</title>
+<title>Mystery code</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -307,57 +307,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Exercise set 3</h1>
+<h1 class="title toc-ignore">Mystery code</h1>
 
 </div>
 
 
-<div id="learning-goals" class="section level2">
-<h2>Learning goals</h2>
-<p>After completing these tasks, you’ll be able to convert raw data into tidy format. You will also be able to make publication quality plots using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork</p>
-</div>
-<div id="tidy-data" class="section level2">
-<h2>3.1 Tidy data</h2>
-<p>Please note that it’s not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Tuesday 12th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed! In the mean time, you can complete these tasks with the example data set.</p>
-<div id="loading-and-inspecting-data" class="section level3">
-<h3>Loading and inspecting data</h3>
-<p>If your own data set is already clean, you can also practice these steps with the exercise_data_messy.csv which is available on Moodle. On the other hand, if you have raw data which needs cleaning, you can also do this on your own data set. The solutions are shown on the exercise data. You’ll need to have the package tidyverse installed and loaded to work these exercises. See a handy cheat sheet for many of the commands we’re using today <a href="./images/data-import.pdf">here</a></p>
-<p>Q3.1.1 Load in your data using <code>read_csv</code>.</p>
-<p>Tip: If your csv uses semicolon (;) instead of comma as a separator, you should use read_csv2 instead.</p>
-<p>Q3.1.2 Inspect your data as we learned last time. How many missing values? Are there any values that might be wrongly coded NA’s?</p>
-<p>Tip: Look for negative values for variables which cannot be negative, like age, or much higher values than what is feasible, like BMI over 100. You can also try plotting your variables to observe very clear outliers.</p>
-<p>Q3.1.3 Fix any wrongly coded NA’s. If you’re changing a single value, you can use <code>data %&gt;% mutate(&lt;columnname&gt; = na_if(&lt;olumnname&gt;, &lt;valuetoreplace&gt;))</code>. If you’re changing multiple values, you can use <code>data %&gt;% mutate(&lt;columnname&gt; = ifelse(&lt;columnname&gt;[logical expression, e.g. &gt;100], NA, &lt;columnname&gt;))</code></p>
-<p>Q3.1.4 Make sure all of your factors are factors. If not, transform them with <code>mutate</code></p>
-</div>
-<div id="massaging-data" class="section level3">
-<h3>Massaging data</h3>
-<p>Q3.1.5 See if you want to rename some columns with <code>rename</code> to make the names shorter (and therefore quicker to type). In the example data set, the first five columns could benefit from a shorter name.</p>
-<p>Q3.1.6 See if you need to gather/spread the data. In the example data set, try to convert the data to the same format as the data set from the previous exercise was (i.e. each food type has its own column).</p>
-<p>Q3.1.7 Create a new column by combining values from existing columns with <code>mutate</code>. If you’re working on the example data set, you can e.g. sum values for different types of bread into a new column called ‘Bread’.</p>
-<p>Q3.1.8 summary &amp; group_by</p>
-</div>
-</div>
-<div id="better-plotting" class="section level2">
-<h2>3.2 Better plotting</h2>
-<p>Let’s remake the bar chart from last set of exercises, but this time with ggplot2.</p>
-<p>Q3.2.1 Start by making a basic histogram</p>
-<pre class="r"><code>ggplot(data, aes(x=Freshveg)) +
-  geom_histogram()</code></pre>
-<p>Q3.2.2 Make sure you understand the different components of this function call. What does “aes” refer to? What happens if you remove the “+” at the end of the first row?</p>
-<p>Q3.2.3 Ask the visuals to show boys and girls separately by adding <code>fill=sex</code> (assuming you renamed co_Gender to sex in Q3.1.5).</p>
-<p>Q3.2.4 Oops, looks like ggplot will by default stack the bars and not show them side by side. You can solve this by adding <code>position=&quot;identity&quot;</code> as an argument for <code>geom_histogram</code>.</p>
-<p>Q3.2.5 In some cases you can now only see the colour which is plotted on top. To make the bars slightly see-through, add <code>alpha=0.5</code> in the call for <code>geom_histogram</code>. You can also try to give other values between 0 and 1 to alpha. Will larger numbers make it more see-through or more solid?</p>
-<p>Q3.2.6 To get the plot to show probability density instead of number of responses in a bin, add <code>aes(y=..density..)</code> to geom_histogram.</p>
-<p>Q3.2.7 Add title to the plot and axis labels with <code>labs(title=&quot;Consumption of fresh vegetables&quot;, x=&quot;Times per week&quot;, y = &quot;Density&quot;)</code></p>
-<p>Tip: Remember that with ggplot, adding new elements happens by adding a + at the end of your previously last line and then adding the new function call below</p>
-<p>Q3.2.8 Now we get to the fun part! You can change the look of the plot by choosing a theme. Look at the themes here <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html#examples" class="uri">https://ggplot2.tidyverse.org/reference/ggtheme.html#examples</a> and apply one of them to your plot.</p>
-<p>Q3.2.9 We can easily add other elements to the plot. For example, adding <code>geom_density(alpha=0.2)</code> as a new function will overlay probability density function for our data. To superimpose a normal distribution curve, we can add <code>stat_function(fun = dnorm, n = 101, args = list(mean = mean(data$Freshveg, na.rm=T), sd = sd(data$Freshveg, na.rm=T)), colour='red')</code></p>
-<p>Q3.2.10 Now save the plot.</p>
-<p>Tip: You cann either put your <code>pdf()</code> and <code>dev.off()</code> calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with <code>p1 &lt;- ggplot</code> etc.)</p>
-<p>Q3.2.11 Now make a figure with your own data, if you have some! Start by creating a simple scatter plot with <code>geom_point</code>. If you want to add a bit of visual jitter (e.g. your data has a lot of similar values), you can use <code>geom_jitter</code> instead.</p>
-<p>Q3.2.12 Add a trend line wiht <code>geom_smooth</code>.</p>
-<p>Q3.2.13 Fine tune your plot: add more legible axis names if needed, pick your theme, change colours and and shapes of the dots. <a href="./images/data-visualization.pdf">See this cheat sheet for help with ggplot!</a></p>
-</div>
+<pre class="r"><code># Can you (together with your group) figure out what
+# this code does? Can you find ways to make the code shorter?
+
+data1 &lt;- rnorm(100)
+data2 &lt;- rnorm(100)
+data3 &lt;- rnorm(100)
+
+data &lt;- c(data1, data2)
+data &lt;- c(data, data3)
+
+x &lt;- sum(is.na(data))
+y &lt;- data &lt; 0
+z &lt;- data &gt; 0
+
+hist(data)
+
+hist(data, col=&#39;red&#39;)
+
+hist(data, col=&#39;red&#39;, breaks=15)
+
+hist(data, col=&#39;red&#39;, breaks=15, main=&#39;Histogram of normally distributed data&#39;)</code></pre>
 
 
 

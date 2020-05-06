@@ -41,7 +41,7 @@ Q3.1.8 summary & group_by
 
 ## 3.2 Better plotting
 
-Let's remake the bar chart from last set of exercises, but this time with ggplot2.
+### Let's remake the bar chart from last set of exercises, but this time with ggplot2.
 
 Q3.2.1 Start by making a basic histogram 
 ```{r eval=FALSE}
@@ -52,6 +52,8 @@ ggplot(data, aes(x=Freshveg)) +
 Q3.2.2 Make sure you understand the different components of this function call. What does "aes" refer to? What happens if you remove the "+" at the end of the first row?
 
 Q3.2.3 Ask the visuals to show boys and girls separately by adding `fill=sex` (assuming you renamed co_Gender to sex in Q3.1.5).
+
+Tip: the value you give fill has to be a factor - if you did not mutate your factors, you should do that now
 
 Q3.2.4 Oops, looks like ggplot will by default stack the bars and not show them side by side. You can solve this by adding `position="identity"` as an argument for `geom_histogram`.
 
@@ -72,4 +74,20 @@ Q3.2.10 Now save the plot.
 
 Tip: You cann either put your `pdf()` and `dev.off()` calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with `p1 <- ggplot` etc.) 
 
-Q
+###  Now make a figure with your own data, if you have some!
+
+Q3.2.11 Start by creating a simple scatter plot with `geom_point`. If you want to add a bit of visual jitter (e.g. your data has a lot of similar values), you can use `geom_jitter` instead.
+
+Q3.2.12 Add a trend line wiht `geom_smooth`.
+
+Q3.2.13 Fine tune your plot: add more legible axis names if needed, pick your theme, change colours and and shapes of the dots. [See this cheat sheet for help with ggplot!](./images/data-visualization.pdf)
+
+### Let's plot multiple plots in the same fig
+
+Q3.2.14 Install and source package "patchwork"
+
+Q3.2.15 Assign the barchart we did to p1 and the new plot you made to p2
+
+Q3.2.16 Run `p1 + p2`
+
+Q3.2.17 Run `p1 / p2`

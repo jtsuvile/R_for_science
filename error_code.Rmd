@@ -1,0 +1,40 @@
+---
+title: "Error_code"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r pressure, eval=FALSE}
+# Start with a clean environment (you can use the broom image on 
+# RStudio or run rm(list=ls())
+
+# can you as a team figure out what went wrong in each of these?
+
+# Q1
+x < 1
+
+# Q2
+y <- 'a"
+x <- y
+
+# Q3 
+y * 5
+
+# Q4
+vect1 <- c(1,2,3 1)
+
+# Q5
+vectl[1]
+
+# Q6
+vect2 <- rnorm(20, mean=0, st.dev=5)
+
+# Q7
+for(i in 1:5{
+  print("The number is", ı)
+}
+
+```
