@@ -9,5 +9,93 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning goals
 
-After completing these tasks, you'll be able to use the tidyverse family of packages to manipulate your data. You will be able to make publication quality figures using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork
+After completing these tasks, you'll be able to convert raw data into tidy format. You will also be able to make publication quality plots using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork
 
+## 3.1 Tidy data
+Please note that it's not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Tuesday 12th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed. In the mean time, you can complete these tasks with the example data set.
+
+### Loading data
+If your own data set is already clean, you can also practice these steps with the exercise_data_messy.csv which is available on Moodle. On the other hand, if you have raw data which needs cleaning, you can also do this on your own data set. The solutions are shown on the exercise data. You'll need to have the package tidyverse installed and loaded to work these exercises. See a handy cheat sheet for many of the commands we're using today [here](./images/data-import.pdf) 
+
+Q3.1.1 Load in your data using `read_csv` (note that this is a different command than what we used last time - the reason is that read_csv is part of the tidyverse and csv.read is part of base R)
+
+Tip: If your csv uses semicolon (;) instead of comma as a separator, you should use read_csv2 instead. 
+
+### Wrangling data 
+
+A quick note about data wrangling: Q3.1.2 and 3.1.3 can be quite tricky to do if you're working on your own data set and you don't have much programming experience. There is no shame in taking it slow and initially doing some steps in excel or whatever other tool you're familiar with! This course covers a lot of ground in a really short time, so if you're feeling overwhelmed, data wrangling might be something you could come back to at a later time.
+
+Q3.1.2 See if you need to gather/spread the data. In the example data set, try to convert the data to the same format as the data set from the previous exercise was (i.e. each food type has its own column). 
+
+Q3.1.3 Is there anything else you need to do to make your data tidy? If you find something else that needs changing, do that. For example, do you need to include information from another file? Then you would read in that data and then do `full_join(data1, data2, by=<column or columns which should match in both dataframes>)`
+
+## Inspecting & manipulating data 
+
+Q3.1.4 Inspect your data as we learned last time, using describe (which package was that from? remember to load the package with `library`) and summary. How many missing values? Describe or summary gives number of NA's to you directly, can you find it? 
+
+Q3.1.5 Are there any values that might be wrongly coded NA's?
+
+Tip: Look for negative values for variables which cannot be negative, like age, or much higher values than what is feasible, a height over 300. You can also try plotting your variables to observe very clear outliers.
+
+Q3.1.6 Fix any wrongly coded NA's. If you're changing a single value, you can use `data %>% mutate(<columnname> = na_if(<columnname>, <valuetoreplace>))`, so for example `data %>% mutate(<columnname> = na_if(height, -1))`. If you're changing multiple values, you can use `data %>% mutate(<columnname> = ifelse(<columnname>[logical expression, e.g. >100], NA, <columnname>))`
+
+Q3.1.7 Make sure all of your factors are factors. If not, transform them with `mutate(<columnname> = factor(<columnname>, levels=<your factor levels, a vector>, labels=<your factor labels, a vector>))`
+
+Q3.1.8 See if you want to rename some columns with `rename` to make the names shorter (and therefore quicker to type). In the example data set, the first five columns could benefit from a shorter name.
+
+Q3.1.9 Create a new column by combining values from existing columns with `mutate`. If you're working on the example data set, you make a new column with BMI.
+
+Q3.1.9 summary & group_by
+
+## 3.2 Better plotting
+
+### Let's remake the bar chart from last set of exercises, but this time with ggplot2.
+
+Q3.2.1 Start by making a basic histogram 
+```{r eval=FALSE}
+ggplot(data, aes(x=Freshveg)) +
+  geom_histogram()
+```
+
+Q3.2.2 Make sure you understand the different components of this function call. What does "aes" refer to? What happens if you remove the "+" at the end of the first row?
+
+Q3.2.3 Ask the visuals to show boys and girls separately by adding `fill=sex` (assuming you renamed co_Gender to sex in Q3.1.5).
+
+Tip: the value you give fill has to be a factor - if you did not mutate your factors, you should do that now
+
+Q3.2.4 Oops, looks like ggplot will by default stack the bars and not show them side by side. You can solve this by adding `position="identity"` as an argument for `geom_histogram`.
+
+Q3.2.5 In some cases you can now only see the colour which is plotted on top. To make the bars slightly see-through, add `alpha=0.5` in the call for `geom_histogram`. You can also try to give other values between 0 and 1 to alpha. Will larger numbers make it more see-through or more solid?
+
+Q3.2.6 To get the plot to show probability density instead of number of responses in a bin, add `aes(y=..density..)` to geom_histogram.
+
+Q3.2.7 Add title to the plot and axis labels with `labs(title="Consumption of fresh vegetables", x="Times per week", y = "Density")`
+
+Tip: Remember that with ggplot, adding new elements happens by adding a + at the end of your previously last line and then adding the new function call below
+
+Q3.2.8 Now we get to the fun part! You can change the look of the plot by choosing a theme. Look at the themes here https://ggplot2.tidyverse.org/reference/ggtheme.html#examples and apply one of them to your plot.
+
+Q3.2.9 We can easily add other elements to the plot. For example, adding `geom_density(alpha=0.2)` as a new function will overlay probability density function for our data.
+To superimpose a normal distribution curve, we can add `stat_function(fun = dnorm, n = 101, args = list(mean = mean(data$Freshveg, na.rm=T), sd = sd(data$Freshveg, na.rm=T)), colour='red')`
+
+Q3.2.10 Now save the plot.
+
+Tip: You cann either put your `pdf()` and `dev.off()` calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with `p1 <- ggplot` etc.) 
+
+###  Now make a figure with your own data!
+
+Q3.2.11 Start by creating a simple scatter plot with `geom_point`. If you want to add a bit of visual jitter (e.g. your data has a lot of similar values), you can use `geom_jitter` instead.
+
+Q3.2.12 Add a trend line with `geom_smooth`.
+
+Q3.2.13 Fine tune your plot: add more legible axis names if needed, pick your theme, change colours and and shapes of the dots. [See this cheat sheet for help with ggplot!](./images/data-visualization.pdf)
+
+### Let's plot multiple plots in the same fig
+
+Q3.2.14 Install and source package "patchwork"
+
+Q3.2.15 Assign the barchart we did to p1 and the new plot you made to p2
+
+Q3.2.16 Run `p1 + p2`
+
+Q3.2.17 Run `p1 / p2`
