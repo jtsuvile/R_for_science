@@ -11,3 +11,33 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to find relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions.
 
+## 4.1 Simple statistical tests
+
+Start by loading in and inspecting your data as you have done in previous tasks. I recommend you do these tasks on a data set which you have already made tidy & you know that the data import works as it should.
+
+Q4.1.1 Select a continuous variable and a factor with two levels, e.g. sex. Run a t-test (command `t.test`) on these variables.
+
+Q4.1.2 From the output, find the *t-statistic*, *degrees of freedom* and *p-value*. Can you also find *confidence interval* and *means in both groups*?
+
+Q4.1.4 Can you find out how to change the test from two-sided to one-sided. Run the same test with one-sided alternative hypothesis.
+
+Tip: this is something you can answer with the built-in help!
+
+Q4.1.3 By default, R assumes unequal variances and runs Welch's t-test. Can you find out how to tell the t.test function that you assume equal variances in the two groups?
+
+## 4.2 Testing assumptions
+Q4.2.1 Are we justified in assuming equal variances in our t-test? Find out by testing for homogeneity of variance. If your data are (roughly) normally distributed, you can use `bartlett.test`. If your data are not normally distributed, you can use tests like `leveneTest` from the `car` package or `fligner.test`.
+
+Tip: At least the Levene test requires that your explanatory variable (the one after the ~) is a factor. If you did not take the time to convert your factors into factors when importing data, do that now!
+
+Q4.2.2 What does your result tell you? Is a low p-value a sign of **having** equal variances or **not having** equal variances? 
+
+Tip: You can try to formulate the null hypothesis and alternative hypothesis for these tests, and reason based on that.
+
+## TODO: Tests for normality
+
+## 4.3 Regression
+For the regression tasks, find a continuous dependent variable and a number of independent variables
+
+Q4.3.1 Create a simple linear regression 
+
