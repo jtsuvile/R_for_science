@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>What is this?</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -295,8 +295,28 @@ $(document).ready(function () {
 <li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
-<li>
-  <a href="error_code.html">Webinar 2 tasks</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-lightbulb-o"></span>
+     
+    Solutions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_3.html">Solutions 3</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_4.html">Solutions 4</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -310,14 +330,72 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">What is this?</h1>
 
 </div>
 
 
-<p>This is where you will find all of the exercises related to the R for data analysis course. There are four exercise sets in total, corresponding to four sets of lecture/demo videos, and a final assignment which is relevant to those of you who wish to get course credits for this course.</p>
-<p>New exercise sets will be revealed at the same time as the new lecture videos are uploaded to Moodle. If you have any questions, please use the Moodle forums to ask them.</p>
+<p>This is where you will find all of the exercises related to the R for data analysis course. This course is intended for people who already have some statistical background and who would like to learn how to conduct data analysis using R. This means that we will spend most of the time figuring out <em>how</em> to do different data wrangling and statistical analysis steps in R, with the assumption that if you're taking this course, you already know <em>why</em> we do these things.</p>
+<p>This course does not assume any prior experience with R or even with programming, and I do my best to explain the basic concepts in a beginner friendly manner. This course will also work for people who have a little bit of coding experience in some other language (e.g. Matlab, python) but are not confident about their ability to pick up a new language or who would also like to recap the basics of writing data analysis scripts. If you have extensive programming experience, this material will likely be too simplistic for you and you might be better off learning R from materials like <a href="https://www.r-bloggers.com/">R bloggers</a>.</p>
+<p>There are four exercise sets in total, corresponding to four sets of lecture/demo videos. Because learning programming is hard and especially as a beginner it can be really difficult to know if your solution is almost right or completely off the mark, model solutions for the exercises are also available. You can take a look at them if you get stuck - the aim is for you to learn and discover what you can do with R, not get discouraged by the first error message. Apart from the model solutions, feel free to use as much google as you wish when doing the exercises. Googling for solutions to programming challenges is a valuable skill and people who program for a living use google constantly to check how to do something or what an error message means.</p>
+<p>The final assignment which is relevant to those of you who participated in the Helsinki University, Spring 2020 execution of this course and wish to get course credit.</p>
+<div id="fantastic-online-resources-for-learning-how-to-do-data-analysis-in-r" class="section level2">
+<h2>Fantastic online resources for learning how to do data analysis in R</h2>
+<ul>
+<li><a href="https://r4ds.had.co.nz/">R for data science (free ebook)</a></li>
+<li><a href="https://bookdown.org/ndphillips/YaRrr/">YaRrr! The pirate's guide to R</a></li>
+<li><a href="https://bookdown.org/rdpeng/exdata/">Exploratory data analysis with R</a></li>
+</ul>
+</div>
+<div id="contact" class="section level2">
+<h2>Contact</h2>
+<p>If you have questions or comments, you can reach me by email at juulia dot suvilehto at iki dot fi or <a href="https://twitter.com/JSuvilehto">as JSuvilehto on Twitter</a>. If you find an error in the tasks or solutions, I'd be very happy if you can <a href="https://github.com/jtsuvile/R_for_science/issues">submit it as an issue</a>, or if you're not comfortable with GitHub, just send me a message.</p>
+</div>
 
+&nbsp;
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<hr />
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column">
+  	<p style="text-align: left;"><span style="color: #808080;">Created by <a href="https://github.com/jtsuvile">Juulia Suvilehto </a>
+	<br><em>juulia.suvilehto@iki.fi</em></span>
+<br>
+    <a href="https://twitter.com/JSuvilehto" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/suvilehto/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/jtsuvile" class="fa fa-github"></a>
+</p>
+  </div>
+  <div class="column">
+  	<p style="text-align: right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+  </div>
+    <div class="column">
+  	<p style="text-align: right;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+  </div>
+</div>
+
+
+&nbsp;
 
 
 

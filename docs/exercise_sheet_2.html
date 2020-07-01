@@ -295,8 +295,28 @@ $(document).ready(function () {
 <li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
-<li>
-  <a href="error_code.html">Webinar 2 tasks</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-lightbulb-o"></span>
+     
+    Solutions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_3.html">Solutions 3</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_4.html">Solutions 4</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -317,7 +337,11 @@ $(document).ready(function () {
 
 <div id="learning-goals" class="section level2">
 <h2>Learning goals</h2>
-<p>After completing these tasks, you’ll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements</p>
+<p>After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements</p>
+</div>
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<p><a href="https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP">You can find the demo videos introducing new concepts and giving you tools to complete these exercises here</a></p>
 </div>
 <div id="more-data-structures" class="section level2">
 <h2>2.1. More data structures</h2>
@@ -348,7 +372,7 @@ $(document).ready(function () {
 <p>Q2.2.3 Take an initial look at the data by printing out the first five rows with <code>head</code>.</p>
 <p>Q2.2.4 Print out the last 10 rows with <code>tail</code>. You need to explicitly give an argument to get 10 instead of 5, can you find out from the help what that parameter is called?</p>
 <p>Q2.2.5 Get some summary statistics with <code>summary</code>.</p>
-<p>Q2.2.6 Load the package ‘psych’ and get a different kind of summary statistics representation with <code>describe</code>. Note: You should already have psych installed if you did the last set of exercises.</p>
+<p>Q2.2.6 Load the package 'psych' and get a different kind of summary statistics representation with <code>describe</code>. Note: You should already have psych installed if you did the last set of exercises.</p>
 </div>
 <div id="indexing-a-data-frame" class="section level3">
 <h3>Indexing a data frame</h3>
@@ -362,14 +386,14 @@ $(document).ready(function () {
 <div id="plotting" class="section level3">
 <h3>Plotting</h3>
 <p>Q2.2.13 Run <code>plot(data[,c('Age_calculated','Healthy_pattern')])</code>, look at the resulting plot, and then run <code>plot(data[,c('co_EDUC_fam_clas','Healthy_pattern')])</code>. You used the same command, why do the plots look different?</p>
-<p>Tip: You can use the arrows at the top of plot viewer to view earlier plots you’ve made. We will go over combining multiple plots in the same figure next week.</p>
-<p>Q2.2.14 Let’s build a histogram of the use of fresh vegetables in this sample! Start by running <code>hist(data$Freshveg)</code></p>
+<p>Tip: You can use the arrows at the top of plot viewer to view earlier plots you've made. We will go over combining multiple plots in the same figure next week.</p>
+<p>Q2.2.14 Let's build a histogram of the use of fresh vegetables in this sample! Start by running <code>hist(data$Freshveg)</code></p>
 <p>Q2.2.15 Looks like we need more bars to get a better look, add parameter <code>breaks=20</code>. You can play around with the number to find one which feels good to you.</p>
 <p>Q2.2.16 Try adding x and y axis labels with <code>xlab=&quot;Fresh vegetable consumption frequency (times per week)&quot;</code> and <code>ylab=&quot;Number of participants&quot;</code></p>
 <p>Q2.2.17 Add title to your plot with the parameter <code>main</code></p>
-<p>Q2.2.18 Add a colour to the bars with <code>col</code>. Tip: You can get a list of acceptable colour name strings with <code>colours()</code> (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you’re just looking up what options you have and once you’ve decided, you do not need to run the check again). You can also define your own rgb colour with rgb()</p>
-<p>Q2.2.19 Once you’re happy with your plot, save it as a pdf-file.</p>
-<p>Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you’re done until the console says null device.</p>
+<p>Q2.2.18 Add a colour to the bars with <code>col</code>. Tip: You can get a list of acceptable colour name strings with <code>colours()</code> (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you're just looking up what options you have and once you've decided, you do not need to run the check again). You can also define your own rgb colour with rgb()</p>
+<p>Q2.2.19 Once you're happy with your plot, save it as a pdf-file.</p>
+<p>Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device.</p>
 <p>Q2.2.20 Run the following code</p>
 <pre class="r"><code>with(data, hist(Freshveg[co_Gender==&#39;male&#39;], 
                 col=rgb(0,0,1,0.5), 
@@ -388,7 +412,7 @@ legend(&quot;topright&quot;, legend=c(&quot;Girls&quot;, &quot;Boys&quot;),
        col=c(rgb(1,0,0,0.5), rgb(0,0,1,0.5)), lwd=10)</code></pre>
 <p>Do you understand what this code does? What does the parameter freq control? What about the parameter add?</p>
 <p>Tip: You can try to comment out lines or change the input values to see what changes</p>
-<p>Q2.2.21 Make a scatter plot which shows BMI as a function of age. You can also practice adding axis labels, a title, and changing other graphical parameters if you’d like. Save the resulting plot.</p>
+<p>Q2.2.21 Make a scatter plot which shows BMI as a function of age. You can also practice adding axis labels, a title, and changing other graphical parameters if you'd like. Save the resulting plot.</p>
 <p>Tip: If you want to color by categorical variable, in scatter plots it is easier than with histograms. You just need to add <code>col=as.integer(data$co_EDUC_fam_clas)</code> (or any other factor vector) as an argument.</p>
 </div>
 </div>
@@ -405,12 +429,56 @@ for(row in 1:20){ # if you wanted to go over the whole data set, you would set t
     cat(paste0(&quot;Subject &quot;, data$ID_number[row], &quot; eats chocolate.\n&quot;))
   }
 }</code></pre>
-<p>Q2.3.2 Edit the loop above so that if the subject eats chocolate and their weekly chocolate consumption is more than the average amount (function mean, remember to use na.rm=T) it will output “Subject X eats more than average amount of chocolate per week” and if they eat less than the average amount, it will ouput “Subject X eats less than average amount of chocolate per week”</p>
-<p>Q2.3.3 Create a new loop which goes over each row of your data frame. For each row, the loop will print “This is subject number” + the subject’s ID number</p>
-<p>Q2.3.4 Continue building the loop by adding another sentence to the output. If the subject is male, the loop should print “He is X years old.” and if the subject is female, it should print “She is X years old.” If the subject’s gender is not known (is.na), it should print out “They are X years old.”</p>
+<p>Q2.3.2 Edit the loop above so that if the subject eats chocolate and their weekly chocolate consumption is more than the average amount (function mean, remember to use na.rm=T) it will output &quot;Subject X eats more than average amount of chocolate per week&quot; and if they eat less than the average amount, it will ouput &quot;Subject X eats less than average amount of chocolate per week&quot;</p>
+<p>Q2.3.3 Create a new loop which goes over each row of your data frame. For each row, the loop will print &quot;This is subject number &quot; + the subject's ID number</p>
+<p>Q2.3.4 Continue building the loop by adding another sentence to the output. If the subject is male, the loop should print &quot;He is X years old.&quot; and if the subject is female, it should print &quot;She is X years old.&quot; If the subject's gender is not known (is.na), it should print out &quot;They are X years old.&quot;</p>
 <p>Tip: Control for NA first, otherwise you will get an error when the loop encounters its first NA.</p>
 </div>
 
+&nbsp;
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<hr />
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column">
+  	<p style="text-align: left;"><span style="color: #808080;">Created by <a href="https://github.com/jtsuvile">Juulia Suvilehto </a>
+	<br><em>juulia.suvilehto@iki.fi</em></span>
+<br>
+    <a href="https://twitter.com/JSuvilehto" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/suvilehto/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/jtsuvile" class="fa fa-github"></a>
+</p>
+  </div>
+  <div class="column">
+  	<p style="text-align: right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+  </div>
+    <div class="column">
+  	<p style="text-align: right;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+  </div>
+</div>
+
+
+&nbsp;
 
 
 

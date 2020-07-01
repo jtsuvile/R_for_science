@@ -11,6 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to run relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions.
 
+## Videos
+[You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
+
 ## 4.1 Simple statistical tests
 
 Start by loading in and inspecting your data as you have done in previous tasks. I recommend you do these tasks on a data set which you have already made tidy & you know that the data import works as it should.

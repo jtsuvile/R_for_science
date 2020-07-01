@@ -11,7 +11,7 @@
 
 
 
-<title>Exercise set 1</title>
+<title>Solutions for exercise set 3</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -330,128 +330,161 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Exercise set 1</h1>
+<h1 class="title toc-ignore">Solutions for exercise set 3</h1>
 
 </div>
 
 
-<div id="learning-goals" class="section level2">
-<h2>Learning goals</h2>
-<p>After completing these tasks you'll be able to follow and carry out the other tasks on this course. You will be able to run code from the console and script in RStudio, create variables, assign values to variables, use functions, load packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.</p>
-</div>
-<div id="videos" class="section level2">
-<h2>Videos</h2>
-<p><a href="https://www.youtube.com/playlist?list=PLDDYJXmrJm8XfNt4LSfDrogW_K9rnZ6-_">You can find the demo videos introducing new concepts and giving you tools to complete these exercises here</a></p>
-</div>
-<div id="how-to-use-r" class="section level2">
-<h2>1.1. How to use R</h2>
-<div id="calculations" class="section level3">
-<h3>Calculations</h3>
-<p>Q1.1.1 Try to run the following commands on the command line (bottom left)</p>
-<p><code>1+1</code></p>
-<p><code>24/6</code></p>
-<p><code>10-5-1</code></p>
-<p><code>5-10/2</code></p>
-<p>Q1.1.2 What do you notice about the order of the calculations? Can you use brackets to control the order of calculations as you would expect?</p>
-<p>Q1.1.3 Now try to run some simple calculations from the script window (top left).</p>
-</div>
-<div id="variables" class="section level3">
-<h3>Variables</h3>
-<p>Q1.1.4 create a simple variable by running</p>
-<p><code>x &lt;- 1</code></p>
-<p>Then only run</p>
-<p><code>x</code></p>
-<p>to see what the variable value is. What does the program output?</p>
-<p>Tip: For some reason it's common to use &lt;- for variable assignment in R, so we'll mainly use that. You can quickly type that in RStudio by pressing alt + - (windows) or option + - (mac). You can also use '=' for variable assignment if you'd prefer.</p>
-<p>Q1.1.5 Try doing some arithmetic operations including x. For example <code>x+5</code>. Is the output what you would expect?</p>
-<p>Q1.1.6 Try to assign an arithmetic operation to a variable called y. Does the variable save the operation or the end result of the operation?</p>
-<p>Q1.1.7 Try adding together variables <code>x</code> and <code>y</code>, and assign the result to a variable called <code>z</code>.</p>
-<p>Q1.1.8 If you just run <code>z+10</code>, this will not change the value of z. If you wanted to save the result of the calculation in z, how would you do that?</p>
-</div>
-<div id="functions" class="section level3">
-<h3>Functions</h3>
-<p>Q1.1.9 Run</p>
-<p><code>a &lt;- sum(1,2,3)</code></p>
-<p>Q1.1.10 Identify <em>function</em>, <em>argument</em> and <em>output</em> (also called result) in the code in Q1.1.9</p>
-<p>Tip: Keep in mind, that you need to add a comma between different arguments to a function. Otherwise you will get an error.</p>
-<p>Q1.1.11 Is the output what you would expect?</p>
-<p>Q1.1.12 Try running the function <code>getwd()</code>, which does not take any arguments. Can you guess what the output tells you?</p>
-<p>Q1.1.13 Run <code>?getwd()</code> to see if you were correct.</p>
-<p>Tip: Remember that parentheses (and quotation marks) must always come in a pair. When you forget one quotation mark or parenthesis (which happens to all of us at some point), R tells you it's expecting more input by showing &quot;+&quot; on the console. If this happens, you can just type in the missing symbol and press enter. To cancel out what you've typed, press the escape key on Windows or Ctrl-C on OS X or Linux.</p>
-</div>
-<div id="saving-your-script" class="section level3">
-<h3>Saving your script</h3>
-<p>Q1.1.14 Make a folder on your computer for this course. Save the script file (.R) you have been working on in that folder.</p>
-</div>
-</div>
-<div id="simple-data-types" class="section level2">
-<h2>1.2. Simple data types</h2>
-<div id="numbers-numeric" class="section level3">
-<h3>Numbers (&quot;numeric&quot;)</h3>
-<p>Q1.2.1 The function <code>typeof()</code> takes one argument, which is the object whose type (class) you want to find out. Use the function to check the class of the following:</p>
-<p><code>x</code></p>
-<p><code>5.1</code></p>
-<p><code>pi</code></p>
-<p><code>2L</code></p>
-</div>
-<div id="characters-text" class="section level3">
-<h3>Characters (text)</h3>
-<p>Q 1.2.2 Use the same function as above to find out the class of</p>
-<p><code>'abc'</code></p>
-<p>Tip: To separate character values from variable names, characters are specified in R by putting them between '' (single quotes) or &quot;&quot; (double quotes).</p>
-<p>Q1.2.3 Try running</p>
-<pre class="r"><code>s &lt;- &#39;abc&#39;
-s+5</code></pre>
-<p>Why do you think this does not work? (Hint: it has to do with data types.)</p>
-<p>Tip: When you want to run multiple lines of code, you can select them with your mouse and then press 'run' (or the shortcut keys)</p>
-</div>
-<div id="logical-boolean-i.e.-true-or-false" class="section level3">
-<h3>Logical (Boolean, i.e. TRUE or FALSE)</h3>
-<p>Q1.2.4 Use your variables x, y and z and logical operators greater than (&gt;), less than (&lt;) and equals (==) to make a logical statement which will evaluate to (output) FALSE and another statement which evaluates to TRUE.</p>
-<p>Tip: Since &quot;=&quot; is used to assign variables, in programming you need to use &quot;==&quot; (two equals signs) to check whether two things are equal. Other logical operators include <code>!=</code> (is not equal to), <code>&lt;=</code> (less than or equal to), <code>&gt;=</code> (greater than or equal to)</p>
-</div>
-<div id="vectors" class="section level3">
-<h3>Vectors</h3>
-<p>Q1.2.5 Run</p>
-<p><code>vec &lt;- 1:10</code></p>
-<p>What is the output? What type is the output?</p>
-<p>Q1.2.6 Make the following two vectors</p>
-<pre class="r"><code>vector1 &lt;- seq(1,20,by=5)
-vector2 &lt;- seq(1,20,length=5)</code></pre>
-<p>Are they the same? What did the arguments <code>by</code> and <code>length</code> do?</p>
-<p>Hint: you can use ?seq to get the help for the function</p>
-<p>Q1.2.7 Using function seq, make a vector that goes from 40 to 100 in steps of 10 and assign it to variable called vector3.</p>
-<p>Q1.2.8 Create a vector of characters a,b,c,and d by using the function <code>c()</code> (c is short for combine). Remember to use quotation marks for the characters.</p>
-<div id="vector-indexing" class="section level4">
-<h4>Vector indexing</h4>
-<p>Q1.2.9 Use the square bracket notation to access the second element of vector3.</p>
-<p>Tip: If you have programmed before, you may be used to indexing which begins at 0. Keep in mind that R starts indexing at 1.</p>
-<p>Q1.2.10 See if you can get R to return (output) the first and second element of vector1 using only one command</p>
-<p>Q1.2.11 Try what happens if you run</p>
-<p><code>vector1[c(TRUE, FALSE, TRUE, FALSE)]</code>?</p>
-<p>Q1.2.12 What about</p>
-<p><code>vector1&gt;10</code>?</p>
-<p>Q1.2.13 Try to retrieve values larger than 50 but smaller than 80 from vector3 using logical indexing.</p>
-<p>Hint: you can combine logical operators with <code>&amp;</code> (and) and <code>|</code> (or)</p>
-</div>
-</div>
-</div>
-<div id="loops" class="section level2">
-<h2>1.3 Loops</h2>
-<p>Q1.3.1 Try running the following simple for loop</p>
-<pre class="r"><code>for(i in 2010:2020){
-  print(paste(&quot;Is this year &quot;,i,&quot;?&quot;, sep=&#39;&#39;))
-}</code></pre>
-<p>Q1.3.2 Modify the loop above to go from 2020 to 2025</p>
-<p>Q1.3.3 Make a loop which sums together values from 1 to 100 and in the end, prints out the result. Make sure you got the correct answer by checking your result with sum(). (This can be a fairly difficult task if you do not have any programming experience.)</p>
-<p>Hint: If you get stuck, there's no shame in googling to get ideas how to accomplish something you don't know how to do in R!</p>
-</div>
-<div id="packages" class="section level2">
-<h2>1.4 Packages</h2>
-<p>Q1.4.1 Install package 'psych'</p>
-<p>Q1.4.2 Load the package with <code>library</code></p>
-<p>Q1.4.3 Try to run the following command from the psych package: <code>describe(vector2)</code>. If you run the command without errors and get a list of descriptive statistics (mean, sd, median etc), it means you have successfully installed psych</p>
-</div>
+<pre class="r"><code>library(tidyverse)
+library(patchwork)
+
+setwd(&#39;/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/data/&#39;)
+## 3.1 Tidy data 
+# Q3.1.1
+data &lt;- read_csv2(&#39;/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/data/exercise_data_not_tidy.csv&#39;)
+# inspect the tibble
+data
+
+## wrangling the data
+# Q3.1.2 
+# I would argue that in this case, it makes most sense to have the food types each be in their own column like they were in the last set of exercises. 
+
+# Q3.1.3
+# we can use the function spread (from tidyr) to go from long to wide
+data &lt;- data %&gt;% spread(key=&#39;food_type&#39;, value=&#39;consumption&#39;)
+
+## cleaning and manipulating the data
+# Q3.1.4 
+summary(data)
+plot(data$Age_calculated)
+plot(data$an_BMI)
+# looks like we have a few problems: there are some subjects with age 99 (although we know these are supposed to be children)
+# we have some subjects with bmi -1, which is not possible so that is also likely supposed to be NA
+# we have a number of &#39;NaN&#39;s (for Not a Number), these should also be coded as NA
+
+# Q3.1.5
+# reload data will fix the NaN issue
+data &lt;- read_csv2(&#39;/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/data/exercise_data_not_tidy.csv&#39;, na=&#39;NaN&#39;)
+# re-run the spreading
+data &lt;- data %&gt;% spread(key=&#39;food_type&#39;, value=&#39;consumption&#39;)
+
+# we can use mutate and na_if to deal with the rest
+data &lt;- data %&gt;% mutate(Age_calculated = na_if(Age_calculated, 99), an_BMI = na_if(an_BMI,-1))
+
+# Q3.1.6
+# looks like co_Gender and co_EDUC_fam_clas should both be factors, let&#39;s take care of that
+data &lt;- data %&gt;% mutate(co_Gender = factor(co_Gender, levels = c(1,2),labels=c(&#39;female&#39;,&#39;male&#39;)), 
+                        co_EDUC_fam_clas = factor(co_EDUC_fam_clas, levels=c(1,2,3), labels=c(&#39;low&#39;,&#39;middle&#39;,&#39;high&#39;)))
+
+# Q3.1.7
+# let&#39;s shorten the names of ID_number, co_Gender, co_EDUC_fam_clas, Age_calculated and an_BMI with rename
+data &lt;- data %&gt;% rename(subid = ID_number, sex = co_Gender, education = co_EDUC_fam_clas, age = Age_calculated, BMI = an_BMI)
+
+# Q3.1.8
+# Let&#39;s sum values for different types of bread into a new column called &#39;Bread&#39;.
+data &lt;- data %&gt;% mutate(bread = Whitebread+Wholemealbread+Ryebread)
+
+# Q3.1.9 
+counted_data &lt;- data %&gt;% group_by(sex, education) %&gt;% tally()
+
+## Note: I have split up the different steps of this process to make it easier to follow what happens where, but you could do the 
+## whole data cleaning bit in one go, like so: 
+data &lt;- data %&gt;% spread(key=&#39;food_type&#39;, value=&#39;consumption&#39;) %&gt;% 
+  mutate(Age_calculated = na_if(Age_calculated, 99), an_BMI = na_if(an_BMI,-1)) %&gt;% 
+  mutate(co_Gender = factor(co_Gender, levels = c(1,2),labels=c(&#39;female&#39;,&#39;male&#39;)), 
+         co_EDUC_fam_clas = factor(co_EDUC_fam_clas, levels=c(1,2,3), labels=c(&#39;low&#39;,&#39;middle&#39;,&#39;high&#39;))) %&gt;% 
+  rename(subid = ID_number, sex = co_Gender, education = co_EDUC_fam_clas, age = Age_calculated, BMI = an_BMI) %&gt;% 
+  mutate(bread = Whitebread+Wholemealbread+Ryebread)
+## (you would still want to build your process step by step, making sure outcome after each step is what you want it to be)
+
+## 3.2 ggplot2 + patchwork
+
+# Q3.2.1 
+ggplot(data, aes(x=Freshveg)) +
+  geom_histogram()
+
+# Q3.2.2
+# aes refers to aesthetics, ggplot&#39;s way of defining how to map data onto the plot
+# if you skip the +, the latter lines won&#39;t be understood as part of the same plot call
+
+# Q3.2.3 
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram()
+
+# Q3.2.4
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram(position=&#39;identity&#39;)
+
+# Q3.2.5 
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram(position=&#39;identity&#39;, alpha=0.5)
+# larger numbers for alpha make the colours more solid, smaller numbers make it more see-through
+
+# Q3.2.6
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram(position=&#39;identity&#39;, alpha=0.5, aes(y=..density..))
+
+# Q3.2.7
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram(position=&#39;identity&#39;, alpha=0.5, aes(y=..density..)) +
+labs(title=&quot;Consumption of fresh vegetables&quot;, x=&quot;Times per week&quot;, y = &quot;Density&quot;)
+
+# Q3.2.8
+ggplot(data, aes(x=Freshveg, fill=sex)) +
+  geom_histogram(position=&#39;identity&#39;, alpha=0.5, aes(y=..density..)) +
+  labs(title=&quot;Consumption of fresh vegetables&quot;, x=&quot;Times per week&quot;, y = &quot;Density&quot;)+
+  theme_classic()
+
+# Q3.2.9
+# to remove the annoying na-bars, you can use na.omit(data) to only look at complete rows
+# i.e. omit any row with at least one missing value
+ggplot(na.omit(data), aes(x=Freshveg, fill=factor(sex))) +
+  geom_histogram(position=&quot;identity&quot;,  alpha=0.5, aes(y=..density..)) + 
+  labs(title=&quot;Consumption of fresh vegetables&quot;, x=&quot;Times per week&quot;, y = &quot;Density&quot;) +
+  geom_density(alpha=0.2) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = mean(data$Freshveg, na.rm=T), sd = sd(data$Freshveg, na.rm=T)), colour=&#39;red&#39;) + 
+  theme_classic(base_size=20)
+
+# Q3.2.10
+p1 &lt;- ggplot(na.omit(data), aes(x=Freshveg, fill=factor(sex))) +
+  geom_histogram(position=&quot;identity&quot;,  alpha=0.5, aes(y=..density..)) + 
+  labs(title=&quot;Consumption of fresh vegetables&quot;, x=&quot;Times per week&quot;, y = &quot;Density&quot;) +
+  geom_density(alpha=0.2) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = mean(data$Freshveg, na.rm=T), sd = sd(data$Freshveg, na.rm=T)), colour=&#39;red&#39;) + 
+  theme_classic(base_size=20) +
+  theme(legend.position = &#39;bottom&#39;)
+
+pdf(&#39;/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/figures/veg_consumption.pdf&#39;)
+p1
+dev.off()
+
+# Q3.2.11
+ggplot(na.omit(data), aes(x=age, y=BMI)) + 
+  geom_point() 
+
+# Q3.2.12
+ggplot(na.omit(data), aes(x=age, y=BMI)) + 
+  geom_point() + 
+  geom_smooth(method=&#39;lm&#39;)
+
+# Q3.2.13
+p2 &lt;- ggplot(na.omit(data), aes(x=age, y=BMI, col=education)) + 
+  geom_point(size=2) + 
+  geom_smooth(method=&#39;lm&#39;, se=F) + 
+  theme_classic() +
+  theme(legend.position = &#39;bottom&#39;)
+
+# Q3.2.16
+p1 + p2
+
+# Q3.2.17
+p1 / p2
+
+# Q 3.2.18
+# for this purpose, maybe the two rows, one column thing worked better?
+# You can also use this to build more complex layouts, like
+p1 + p2/p2
+p1 / (p2 + p2)</code></pre>
 
 &nbsp;
 <style>

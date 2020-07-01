@@ -21,9 +21,22 @@ navbar:
     - text: "Final assignment"
 #      icon: fa-newspaper-o
       href: exercise_sheet_5.html
-    - text: "Webinar 2 tasks"
+    - text: "Solutions"
+      icon: fa-lightbulb-o
+      menu:
+        - text: "Solutions 1"
+          href: solutions_exercise_1.html
+        - text: "Solutions 2"
+          href: solutions_exercise_2.html
+        - text: "Solutions 3"
+          href: solutions_exercise_3.html
+        - text: "Solutions 4"
+          href: solutions_exercise_4.html
+#    - text: "Webinar 2 tasks"
 #      icon: fa-newspaper-o
-      href: error_code.html
+#      href: error_code.html
 output:
   html_document:
       theme: flatly
+      includes:
+        after_body: footer.html

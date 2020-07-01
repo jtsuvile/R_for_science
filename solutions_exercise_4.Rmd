@@ -1,0 +1,113 @@
+---
+title: "Solutions for exercise set 4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r eval=FALSE}
+# Working on the food consumption data set from exercise 2
+library(car)
+# Start by reading in the data
+data <- read.csv('/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/data/exercise_data.csv', 
+                 sep=";", dec=',')
+
+data$co_Gender <- factor(data$co_Gender, levels=c(1,2), labels=c('female','male'))
+data$co_EDUC_fam_clas <- factor(data$co_EDUC_fam_clas, levels=c(1,2,3), labels=c('low','middle','high'))
+
+## 4.1 Simple statistical tests
+
+# Q4.1.1
+# checking mean BMI for boys and girls
+res <- t.test(data$an_BMI ~ data$co_Gender)
+
+# Q4.1.2 
+# t stands for test statistic, df stands for the degrees of freedom, p-value tells the p-valua
+# you can call these from the results with 
+res$statistic
+res$parameter
+res$p.value
+# respectively. Similarly, for confidence interval
+res$conf.int
+# and means
+res$estimate
+
+# Q4.1.3
+# for one-sided alternative hypothesis, you need to define which way you assume the 
+# difference to be with either "less" or "greater"
+t.test(data$an_BMI ~ data$co_Gender, alternative='greater')
+
+# Q4.1.4
+# built-in help tells us that var.equal parameter controls this
+# if we want to specify that we assume equal variances, we can include
+# var.equal = TRUE
+t.test(data$an_BMI ~ data$co_Gender, var.equal = TRUE)
+
+# 4.2 Testing assumptions
+
+# Q4.2.1
+# equality of variances
+# our data are not normally distributed (as we learn below) so we'll use fligner-killeen's test
+# which is very robust against departures from normality
+fligner.test(data$an_BMI ~ data$co_Gender)
+
+# Q4.2.2
+# In the case of all of these tests, the null hypothesis (H0) is that 
+# the two samples have equal variances (i.e. no difference in variances 
+# between the groups), and H1 is that there is a difference. Therefore,
+# if you get a high p-value, it's an indication of your samples having
+# equal variances (keep H0), and if you get a low p-value, it's an indication
+# of there being a difference and you having to reject H0.
+
+# For the exercise data, we get 
+# Fligner-Killeen:med chi-squared = 1.9953, df = 1, p-value = 0.1578
+# The p value is large enough that we cannot reject the null hypothesis
+
+# Q4.2.3
+
+# Plotting tests for normality
+hist(data$an_BMI)
+qqnorm(data$an_BMI)
+qqline(data$an_BMI)
+# they all look normal-ish but not exactly normal, looks like there is some skew
+
+# Q4.2.4
+shapiro.test(data$an_BMI)
+# nope, not normally distributed in this data set
+
+## 4.3 Regression
+# first, let's only work with rows with no missing values (makes our life easier)
+data_complete <- na.omit(data)
+
+# Q4.3.1 
+# simple regression 
+lm(an_BMI ~ Sweets_pattern, data=data_complete)
+
+# Q4.3.2 
+model1 <- lm(an_BMI ~ Sweets_pattern, data=data_complete)
+summary(model1)
+
+# Q4.3.3 
+# a slightly more complex linear model
+model2 <- lm(an_BMI ~ Sweets_pattern + Healthy_pattern, data=data_complete)
+summary(model2)
+
+# Q4.3.4 
+# Comparing the two models 
+anova(model1,model2)
+
+## Bonus! Logistic regression
+
+# create a binary variable about whether subject is above or below average BMI for this sample
+data_complete$above_avg_BMI <- data_complete$an_BMI > mean(data_complete$an_BMI)
+
+# run a logistic regression where dependent variable is the one we just created
+bin1 <- glm(formula = above_avg_BMI ~ Sweets_pattern +  Healthy_pattern + Veg_meats_pattern, 
+    data=data_complete,
+    family = 'binomial')
+
+# check to see outcome
+summary(bin1)
+
+```

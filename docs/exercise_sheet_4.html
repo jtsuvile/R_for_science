@@ -295,8 +295,28 @@ $(document).ready(function () {
 <li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
-<li>
-  <a href="error_code.html">Webinar 2 tasks</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-lightbulb-o"></span>
+     
+    Solutions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_3.html">Solutions 3</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_4.html">Solutions 4</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -319,14 +339,18 @@ $(document).ready(function () {
 <h2>Learning goals</h2>
 <p>After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to run relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions.</p>
 </div>
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<p><a href="https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA">You can find the demo videos introducing new concepts and giving you tools to complete these exercises here</a></p>
+</div>
 <div id="simple-statistical-tests" class="section level2">
 <h2>4.1 Simple statistical tests</h2>
 <p>Start by loading in and inspecting your data as you have done in previous tasks. I recommend you do these tasks on a data set which you have already made tidy &amp; you know that the data import works as it should.</p>
-<p>Q4.1.1 Select a continuous variable and a factor with two levels, e.g. sex. Run a t-test (command <code>t.test</code>) on these variables.</p>
+<p>Q4.1.1 Select a continuous variable and a factor with two levels, e.g. sex. Run a t-test (command <code>t.test</code>) on these variables.</p>
 <p>Q4.1.2 From the output, find the <em>t-statistic</em>, <em>degrees of freedom</em> and <em>p-value</em>. Can you also find <em>confidence interval</em> and <em>means in both groups</em>?</p>
 <p>Q4.1.3 Can you find out how to change the test from two-sided to one-sided. Run the same test with one-sided alternative hypothesis (you can pick which direction makes more sense).</p>
 <p>Tip: this is something you can answer with the built-in help!</p>
-<p>Q4.1.4 By default, R assumes unequal variances and runs Welch’s t-test. Can you find out how to tell the t.test function that you assume equal variances in the two groups?</p>
+<p>Q4.1.4 By default, R assumes unequal variances and runs Welch's t-test. Can you find out how to tell the t.test function that you assume equal variances in the two groups?</p>
 </div>
 <div id="testing-assumptions" class="section level2">
 <h2>4.2 Testing assumptions</h2>
@@ -350,6 +374,50 @@ $(document).ready(function () {
 <p>Create a new binary variable (or use one you have already) to run logistic regression.</p>
 </div>
 
+&nbsp;
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<hr />
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column">
+  	<p style="text-align: left;"><span style="color: #808080;">Created by <a href="https://github.com/jtsuvile">Juulia Suvilehto </a>
+	<br><em>juulia.suvilehto@iki.fi</em></span>
+<br>
+    <a href="https://twitter.com/JSuvilehto" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/suvilehto/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/jtsuvile" class="fa fa-github"></a>
+</p>
+  </div>
+  <div class="column">
+  	<p style="text-align: right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+  </div>
+    <div class="column">
+  	<p style="text-align: right;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+  </div>
+</div>
+
+
+&nbsp;
 
 
 

@@ -295,8 +295,28 @@ $(document).ready(function () {
 <li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
-<li>
-  <a href="error_code.html">Webinar 2 tasks</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-lightbulb-o"></span>
+     
+    Solutions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_3.html">Solutions 3</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_4.html">Solutions 4</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -322,8 +342,8 @@ $(document).ready(function () {
 </div>
 <div id="details" class="section level2">
 <h2>Details</h2>
-<p>You should return three items which you could include in the results section of a paper. One of the items must be a figure and one must be an analysis (simple or complex), while the third item can be either. You can use the same data for all three or use different data sets for all, whichever you prefer. The analyses and figures can be related (e.g. an ANOVA and interaction plot), but they don’t have to be.</p>
-<p><strong>For figures</strong>, make sure your plot type conveys the relevant information. Make sure the texts, such as axis labels, tick marks, and legends, are a good size and understandable to a naive reader. Pay attention to selecting the theme (if using ggplot), colours, and element sizes. <strong>For analyses</strong>, make sure the type of analysis you run can answer the question you are asking, and that your data fulfils the necessary requirements for that type of analysis (e.g. number of observations, distribution of variables, amount of missing values). If you run multiple tests to answer a single hypothesis (e.g. multiple t-tests for different types of foods), remember to do multiple comparison correction.</p>
+<p>You should return three items which you could include in the results section of a paper. One of the items must be a figure and one must be an analysis (simple or complex), while the third item can be either. You can use the same data for all three or use different data sets for all, whichever you prefer. The analyses and figures can be related (e.g. an ANOVA and interaction plot), but they don't have to be.</p>
+<p><strong>For figures</strong>, make sure your plot type conveys the relevant information. Make sure the texts, such as axis labels, tick marks, and legends, are a good size and understandable to a naive reader. Pay attention to selecting the theme (if using ggplot), colours, and element sizes. <strong>For analyses</strong>, make sure the type of analysis you run can answer the question you are asking, and that your data fulfils the necessary requirements for that type of analysis (e.g. number of observations, distribution of variables, amount of missing values). If you run multiple tests to answer a single hypothesis (e.g. multiple t-tests for different types of foods), remember to do multiple comparison correction.</p>
 </div>
 <div id="handing-in-the-assignment" class="section level2">
 <h2>Handing in the assignment</h2>
@@ -334,7 +354,7 @@ $(document).ready(function () {
 </div>
 <div id="results" class="section level3">
 <h3>Results</h3>
-<p>Include a pdf with one paragraph briefly(!) explaining the data you’re working with and outcomes of the three items you created. For figures, you should include the figure itself and a caption, specifying any analyses which might be part of the figure (e.g. comparing two groups: which analysis was used, how is significance defined). For analyses, you should include the sentence(s) you would write about this analysis in the methods section and the sentence(s) or table which you would use in the results section to describe your outcome.</p>
+<p>Include a pdf with one paragraph briefly(!) explaining the data you're working with and outcomes of the three items you created. For figures, you should include the figure itself and a caption, specifying any analyses which might be part of the figure (e.g. comparing two groups: which analysis was used, how is significance defined). For analyses, you should include the sentence(s) you would write about this analysis in the methods section and the sentence(s) or table which you would use in the results section to describe your outcome.</p>
 </div>
 </div>
 <div id="grading" class="section level2">
@@ -342,6 +362,50 @@ $(document).ready(function () {
 <p>Pass/fail.</p>
 </div>
 
+&nbsp;
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<hr />
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column">
+  	<p style="text-align: left;"><span style="color: #808080;">Created by <a href="https://github.com/jtsuvile">Juulia Suvilehto </a>
+	<br><em>juulia.suvilehto@iki.fi</em></span>
+<br>
+    <a href="https://twitter.com/JSuvilehto" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/suvilehto/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/jtsuvile" class="fa fa-github"></a>
+</p>
+  </div>
+  <div class="column">
+  	<p style="text-align: right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+  </div>
+    <div class="column">
+  	<p style="text-align: right;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+  </div>
+</div>
+
+
+&nbsp;
 
 
 

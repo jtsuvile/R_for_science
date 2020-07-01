@@ -11,6 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks you'll be able to follow and carry out the other tasks on this course. You will be able to run code from the console and script in RStudio, create variables, assign values to variables, use functions, load packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.
 
+## Videos
+[You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8XfNt4LSfDrogW_K9rnZ6-_)
+
 ## 1.1. How to use R 
 ### Calculations
 
