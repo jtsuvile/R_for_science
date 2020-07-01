@@ -1,0 +1,129 @@
+---
+title: "Code from demo 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r eval=FALSE}
+
+## 1.1 How to use R
+
+## operators
+# simple mathematical operations work as you would expect
+1+1
+5*10
+2^3+2
+2^(3+2)
+
+## variables
+x <- 1
+x
+# R is a bit dumb, so make sure you type the variable name exactly as it is 
+x1
+
+# a variable only remembers the latest value you assigned to it
+x <- 2 
+x
+# variable does not change its value unless you expressly tell it to
+2*x
+x 
+x <- x*2
+x
+# you can also capture the result in another variable
+y <- x^2
+y 
+
+## functions
+# function call comprises of function itself ('nchar' below), arguments('abcd'), which can be given directly or from a variable,
+# and output which in the first example gets printed on the screen and on the second gets assigned to variable n
+nchar('abcd')
+letters <- 'abcd'
+n <- nchar(letters)
+n
+
+# a function does not need to take arguments 
+ls()
+
+# You can find the documentation of the function by running ? + function name, from the 'Help' tab in the bottom right panel or
+# by googling (you can use 'cran' instead of R for better google hits)
+?ls()
+
+# some arguments are location based and some (usually optional arguments) need to be specified 
+log(10)           # from help we see that the default base is e
+log(10, base=2)   # we can use base-argument to define another base if we'd like
+
+# functions can be picky with respect to what kinds of arguments they accept
+log('a')
+
+## 1.2. Basic data types (+ one data structure)
+
+# data types
+
+typeof(x)
+typeof('x')
+typeof(TRUE)
+typeof(5+2i)
+
+# more about logical data type
+5 > 6
+4 < 1000
+5 >= 5
+7 <= -2
+x == 4
+x != y
+# logical operators can also be chained using & (logical AND) and | (logical inclusive OR)
+# you can make the pipe | sign with option + 7 on Mac and ctrl + alt + >< key on Windows
+x >= 2 & x < 5
+
+# vector, a very simple data structure 
+vect <- rnorm(10)   # if you run this at home, you will see a slightly different set of numbers since they are random
+vect
+mean(vect)
+sd(vect)
+vect <- rnorm(100)
+mean(vect)
+sd(vect)
+vect+1
+mean(vect + 1) 
+
+#vector indexing
+
+vect >=0
+vect[4]
+vect[1:3]
+vect[101]            # we will discuss NA more in future lessons!
+vect[vect >= 0]
+
+## 1.3 loops
+# a very simple loop may look like this
+for(j in 1:5){
+  print(j)
+}
+
+# loops can (and often do) have a lot more in the middle
+
+z <- c(2,5,3,9,8,11,6)
+currentsum <- 0
+
+# we loop over all the values in z
+for(value in z){
+  # if the value is even (modulo 2 is 0) 
+  if(value %% 2 == 0){ # the %% in the middle is the operator for modulo
+    # add the value to the currentsum variable
+    currentsum <- currentsum + value
+  }
+  # print currentsum each time, regardless of whether we changed it
+  print(currentsum)
+}
+
+# 1.4 Packages 
+# you can install packages from the graphical user interface (tools -> install packages) or from the command line with
+install.packages('psych')
+install.packages('ggplot2')
+
+# you only need to download packages once per computer you use
+# however, at the beginning of each R session you need to tell R which packages you want to use
+library(ggplot2)
+```

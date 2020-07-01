@@ -1,5 +1,5 @@
 ---
-title: "Exercise set 2"
+title: "Week 2"
 output: html_document
 ---
 
@@ -11,9 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements
 
-## Videos
-[You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP)
+## Resources
+* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP)
+* [You can find the slides shown in the video here](./images/slides_for_demo_2.pdf)
+* [You can see the code from the videos here](./code_demo_2.html)
+* [You can see the solutions for the exercises below here](./solutions_exercise_2.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
 
+# Exercises
 ## 2.1. More data structures
 Q2.1.1 Create three vectors called x,y,z, each of them numeric and 4 elements long. Try to use a different function for creating each.
 

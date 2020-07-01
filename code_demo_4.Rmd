@@ -1,0 +1,109 @@
+---
+title: "Code from demo 4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r eval=FALSE}
+library(tidyverse)
+library(yarrr)
+library(QuantPsyc)
+
+# read in well-behaved data
+data <- read_csv2('C:\\Users\\Aleksandre Asatiani\\Desktop\\R_course\\data_for_demo_4.csv')
+
+## Simple statistical tests
+
+# Run a correlation test and inspect the output
+res_corr <- cor.test(data$emotional_bond, data$pleasantness)
+res_corr
+str(res_corr)
+
+# You can use apa function from the package yarrr to get a nicer printout of test results
+# (unfortunately only works for correlation, t-test and chi squared)
+apa(res)
+
+# confusingly, you should use the function aov() to run an ANOVA 
+anova_1 <- aov(touch_allowance ~ person + sex, data=data)
+summary(anova_1)
+
+## Test assumptions
+
+# you can look at normality by running visualisations
+hist(data$pleasantness)
+qqnorm(data$pleasantness)
+qqline(data$pleasantness)
+
+# and get the final result with a statistical test
+shapiro.test(data$pleasantness)
+# These data are not normally distributed nope
+
+# For non-normal data, you can choose if you want to a) run the non-parametric test
+# or b) do some kind of transformation to get your data to be more normal
+
+# a) Non-parametric version of t-test
+wilcox.test(data$pleasantness ~ data$sex)
+
+# b) getting averages to see if that is a suitable transformation
+# average for each subject ID (multiple measurements per subject)
+avg_pleas <- data %>% group_by(subid, sex) %>% 
+  summarise(mean(pleasantness))
+
+# see again if we have normally distributed data
+hist(avg_pleas$`mean(pleasantness)`)
+qqnorm(avg_pleas$`mean(pleasantness)`)
+qqline(avg_pleas$`mean(pleasantness)`)
+# final word with the shapiro-wilks test
+shapiro.test(avg_pleas$`mean(pleasantness)`)
+# yes! these data do seem normally distributed
+
+# F test to compare the variances of two samples
+var.test(avg_pleas$`mean(pleasantness)` ~ avg_pleas$sex)
+
+# Now we can run t-test
+# please note, in the demo we ran the test as it is below
+t.test(avg_pleas$`mean(pleasantness)` ~ avg_pleas$sex)
+# but actually we should have run 
+t.test(avg_pleas$`mean(pleasantness)` ~ avg_pleas$sex, var.equal = TRUE)
+# because we did have equal variances. Oops!
+
+# If you want to run multiple comparison correction, you can use 
+p.adjust()
+
+## Regression
+
+# simple regression model
+reg_model_1 <- lm(touch_allowance ~ emotional_bond, data=data)
+summary(reg_model_1)
+
+# a slightly more complex regression model
+reg_model_2 <- lm(touch_allowance ~ emotional_bond + pleasantness, data=data)
+summary(reg_model_2)
+
+# comparing regression models
+anova(reg_model_1, reg_model_2)
+# here, significance means that there *is* a different between the model fits,
+# typically that the more complex model is better than the simpler one
+
+# extracting standardised betas
+# method 1, scaling variables
+reg_model_3 <- lm(scale(touch_allowance) ~ scale(emotional_bond) + scale(pleasantness), data=data)
+summary(reg_model_3)
+
+# method 2, lm.beta from the QuantPsyc package
+lm.beta(reg_model_2) 
+
+# logistic regression
+# creating a binary variable to use as outcome
+data$close_other <- data$emotional_bond >= 8
+
+# building our model
+logit_model_1 <- glm(formula= close_other ~ pleasantness + touch_allowance,
+                     data = data,
+                     family = binomial)
+
+# checking the result
+summary(logit_model_1)
+```

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Code from demo 3</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R for data analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="exercise_sheet_1.html">Exercises 1</a>
+</li>
+<li>
+  <a href="exercise_sheet_2.html">Exercises 2</a>
+</li>
+<li>
+  <a href="exercise_sheet_3.html">Exercises 3</a>
+</li>
+<li>
+  <a href="exercise_sheet_4.html">Exercises 4</a>
+</li>
+<li>
+  <a href="exercise_sheet_5.html">Final assignment</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-lightbulb-o"></span>
+     
+    Solutions
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_3.html">Solutions 3</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_4.html">Solutions 4</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Code from demo 3</h1>
+
+</div>
+
+
+<pre class="r"><code># import all packages at top, even if you need them somewhere later
+library(tidyverse)
+library(psych)
+library(patchwork)
+
+# we can avoid typing paths multiple times by having a variable which points to the folder,
+# where we have our stuff
+data_in &lt;- &#39;C:\\Users\\Aleksandre Asatiani\\Desktop\\R_course\\&#39;
+
+# use read_csv to read in two parts of the same data set
+subjects &lt;- read_csv(paste0(data_in, &#39;subinfo_for_demo.csv&#39;))
+subjects
+
+bonds &lt;- read_csv(paste0(data_in, &#39;bonds_for_demo.csv&#39;), na=&#39;NaN&#39;)
+bonds                  
+
+# we&#39;re using join to combine the subjects and bonds data frames (or rather, tibbles)
+data &lt;- full_join(subjects, bonds, by=&#39;subid&#39;)
+
+# gather can be used to go from a wide format of data to a long format
+data_long &lt;- data %&gt;% gather(Partner:M_Stranger, key=&#39;person&#39;, value=&#39;emotional_bond&#39;)
+
+# load in one more data file and convert it to long and combine it with the others
+touch &lt;- read_csv(paste0(data_in, &#39;touch_allowance_for_demo.csv&#39;))
+touch_long &lt;- touch %&gt;% gather(Partner:M_Stranger, key=&#39;person&#39;, value=&#39;touch_allowance&#39;)
+full_data &lt;- full_join(data_long, touch_long, by=c(&#39;subid&#39;,&#39;person&#39;))
+
+## Manipulating data
+# Mostly with dplyr package
+
+# last time we learned these tools to look at your data
+summary(full_data)
+describe(full_data)
+full_data
+
+# with dplyr we can easily select a specific subset of data to look at (or save)
+full_data %&gt;% filter(age&gt;60, person==&#39;Partner&#39;) %&gt;% na.omit()
+full_data %&gt;% select(subid, person, emotional_bond, touch_allowance) %&gt;% 
+  filter(!is.na(touch_allowance))
+
+# editing all of our problematic missing values
+full_data_2 &lt;- full_data %&gt;% mutate(weight=na_if(weight, -1),
+                     height=na_if(height, -1),
+                     sex = factor(sex, levels=c(0,1), labels=c(&#39;female&#39;,&#39;male&#39;)),
+                     bmi = weight / (height^2)) %&gt;% 
+  select(c(subid, sex, age, height, weight, bmi, person, emotional_bond, touch_allowance))
+
+# an example of how to group and summarise data
+full_data_2 %&gt;% group_by(sex) %&gt;% summarise(mean(height, na.rm=T))
+
+# a more complete example of grouping and summarising data
+avg_by_sex &lt;- full_data_2 %&gt;% group_by(sex, person) %&gt;% select(sex, person, emotional_bond, touch_allowance) %&gt;% 
+  summarise_all(mean, na.rm=T)
+
+# save summary table to file
+write_csv(avg_by_sex, paste0(data_in, &#39;avg_by_sex.csv&#39;))
+
+## Plotting
+# feat ggplot2
+
+# creating a plot and assignign it to variable
+p1 &lt;- ggplot(data=avg_by_sex, 
+       aes(x=emotional_bond, y=touch_allowance, col=sex)) +
+  geom_point(size = 3) + 
+  stat_smooth(method=&#39;lm&#39;, se=F)+
+  theme_classic() + 
+  ylab(&#39; &#39;) +
+  xlab(&#39;Emotional Bond&#39;) +
+  scale_y_continuous(limits=c(0,1)) +
+  scale_x_continuous(limits=c(1,10), breaks=1:10) +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=18),
+        legend.position= &#39;top&#39;)
+# call variable name to see the plot
+p1
+
+p2 &lt;- ggplot(data=full_data_2, 
+             aes(x=emotional_bond, y=touch_allowance, col=sex)) +
+  geom_jitter(size = 3, alpha=0.2) + 
+  stat_smooth(method=&#39;lm&#39;, se=F)+
+  theme_classic() + 
+  ylab(&#39;Touchability Index&#39;) +
+  xlab(&#39;Emotional Bond&#39;) +
+  scale_x_continuous(limits=c(1,10), breaks=1:10) +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=18),
+        legend.position= &#39;top&#39;)
+
+# saving the plots
+png(paste0(data_in, &#39;side_by_side_comparison.png&#39;), 
+    width=800, height=800)
+# the package patchwork allows you to combine plots to 
+# single figure with + and /
+p2 + p1
+dev.off()
+
+# violin plot
+# example of how to create different types of figures 
+# also showing how to re-order discrete axes 
+
+preferred_order &lt;- c(&#39;Partner&#39;, &#39;Mother&#39;, &#39;Father&#39;, &#39;Sister&#39;, &#39;Brother&#39;, 
+  &#39;Aunt&#39;, &#39;Uncle&#39;, &#39;F_Cousin&#39;, &#39;M_Cousin&#39;,
+  &#39;F_Friend&#39;, &#39;M_Friend&#39;, &#39;F_Acq&#39;, &#39;M_Acq&#39;,  
+  &#39;F_Stranger&#39;, &#39;M_Stranger&#39;)
+ggplot(data = full_data_2, 
+       aes(x=factor(person, level=preferred_order), 
+           y=touch_allowance)) +
+  geom_violin(col=&#39;blue&#39;, fill=&#39;red&#39;, alpha=0.5) + 
+  theme_bw()</code></pre>
+
+&nbsp;
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<hr />
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+  <div class="column">
+  	<p style="text-align: left;"><span style="color: #808080;">Created by <a href="https://users.aalto.fi/~jtsuvile/">Juulia Suvilehto </a>
+	<br><em>juulia.suvilehto@iki.fi</em></span>
+<br>
+    <a href="https://twitter.com/JSuvilehto" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/suvilehto/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/jtsuvile" class="fa fa-github"></a>
+</p>
+  </div>
+  <div class="column">
+  	<p style="text-align: right;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a></p>
+  </div>
+    <div class="column">
+  	<p style="text-align: right;">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></p>
+  </div>
+</div>
+
+
+&nbsp;
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

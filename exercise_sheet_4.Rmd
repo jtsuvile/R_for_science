@@ -1,5 +1,5 @@
 ---
-title: "Exercise set 4"
+title: "Week 4"
 output: html_document
 ---
 
@@ -11,9 +11,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to run relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions.
 
-## Videos
-[You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
+## Resources
+* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
+* [You can find the slides shown in the video here](./images/slides_for_demo_4.pdf)
+* [You can see the code from the videos here](./code_demo_4.html)
+* [You can see the solutions for the exercises below here](./solutions_exercise_4.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
+* [An approachable introduction to linear mixed effects modeling with implementation in R (a pre-print)](https://psyarxiv.com/9vghm/)
+* [Specifying multilevel models in R](http://www.rensenieuwenhuis.nl/r-sessions-16-multilevel-model-specification-lme4/)
+* [Twitter thread about ANOVA in R and why it's not always as simple as one might hope](https://twitter.com/WeAreRLadies/status/1223790298024726528)
+* [A tutorial for logistic regression](https://stats.idre.ucla.edu/r/dae/logit-regression/)
 
+# Exercises
 ## 4.1 Simple statistical tests
 
 Start by loading in and inspecting your data as you have done in previous tasks. I recommend you do these tasks on a data set which you have already made tidy & you know that the data import works as it should.

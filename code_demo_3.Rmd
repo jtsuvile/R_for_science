@@ -1,0 +1,119 @@
+---
+title: "Code from demo 3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r eval=FALSE}
+# import all packages at top, even if you need them somewhere later
+library(tidyverse)
+library(psych)
+library(patchwork)
+
+# we can avoid typing paths multiple times by having a variable which points to the folder,
+# where we have our stuff
+data_in <- 'C:\\Users\\Aleksandre Asatiani\\Desktop\\R_course\\'
+
+# use read_csv to read in two parts of the same data set
+subjects <- read_csv(paste0(data_in, 'subinfo_for_demo.csv'))
+subjects
+
+bonds <- read_csv(paste0(data_in, 'bonds_for_demo.csv'), na='NaN')
+bonds                  
+
+# we're using join to combine the subjects and bonds data frames (or rather, tibbles)
+data <- full_join(subjects, bonds, by='subid')
+
+# gather can be used to go from a wide format of data to a long format
+data_long <- data %>% gather(Partner:M_Stranger, key='person', value='emotional_bond')
+
+# load in one more data file and convert it to long and combine it with the others
+touch <- read_csv(paste0(data_in, 'touch_allowance_for_demo.csv'))
+touch_long <- touch %>% gather(Partner:M_Stranger, key='person', value='touch_allowance')
+full_data <- full_join(data_long, touch_long, by=c('subid','person'))
+
+## Manipulating data
+# Mostly with dplyr package
+
+# last time we learned these tools to look at your data
+summary(full_data)
+describe(full_data)
+full_data
+
+# with dplyr we can easily select a specific subset of data to look at (or save)
+full_data %>% filter(age>60, person=='Partner') %>% na.omit()
+full_data %>% select(subid, person, emotional_bond, touch_allowance) %>% 
+  filter(!is.na(touch_allowance))
+
+# editing all of our problematic missing values
+full_data_2 <- full_data %>% mutate(weight=na_if(weight, -1),
+                     height=na_if(height, -1),
+                     sex = factor(sex, levels=c(0,1), labels=c('female','male')),
+                     bmi = weight / (height^2)) %>% 
+  select(c(subid, sex, age, height, weight, bmi, person, emotional_bond, touch_allowance))
+
+# an example of how to group and summarise data
+full_data_2 %>% group_by(sex) %>% summarise(mean(height, na.rm=T))
+
+# a more complete example of grouping and summarising data
+avg_by_sex <- full_data_2 %>% group_by(sex, person) %>% select(sex, person, emotional_bond, touch_allowance) %>% 
+  summarise_all(mean, na.rm=T)
+
+# save summary table to file
+write_csv(avg_by_sex, paste0(data_in, 'avg_by_sex.csv'))
+
+## Plotting
+# feat ggplot2
+
+# creating a plot and assignign it to variable
+p1 <- ggplot(data=avg_by_sex, 
+       aes(x=emotional_bond, y=touch_allowance, col=sex)) +
+  geom_point(size = 3) + 
+  stat_smooth(method='lm', se=F)+
+  theme_classic() + 
+  ylab(' ') +
+  xlab('Emotional Bond') +
+  scale_y_continuous(limits=c(0,1)) +
+  scale_x_continuous(limits=c(1,10), breaks=1:10) +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=18),
+        legend.position= 'top')
+# call variable name to see the plot
+p1
+
+p2 <- ggplot(data=full_data_2, 
+             aes(x=emotional_bond, y=touch_allowance, col=sex)) +
+  geom_jitter(size = 3, alpha=0.2) + 
+  stat_smooth(method='lm', se=F)+
+  theme_classic() + 
+  ylab('Touchability Index') +
+  xlab('Emotional Bond') +
+  scale_x_continuous(limits=c(1,10), breaks=1:10) +
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=18),
+        legend.position= 'top')
+
+# saving the plots
+png(paste0(data_in, 'side_by_side_comparison.png'), 
+    width=800, height=800)
+# the package patchwork allows you to combine plots to 
+# single figure with + and /
+p2 + p1
+dev.off()
+
+# violin plot
+# example of how to create different types of figures 
+# also showing how to re-order discrete axes 
+
+preferred_order <- c('Partner', 'Mother', 'Father', 'Sister', 'Brother', 
+  'Aunt', 'Uncle', 'F_Cousin', 'M_Cousin',
+  'F_Friend', 'M_Friend', 'F_Acq', 'M_Acq',  
+  'F_Stranger', 'M_Stranger')
+ggplot(data = full_data_2, 
+       aes(x=factor(person, level=preferred_order), 
+           y=touch_allowance)) +
+  geom_violin(col='blue', fill='red', alpha=0.5) + 
+  theme_bw()
+```

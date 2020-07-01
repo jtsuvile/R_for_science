@@ -1,0 +1,130 @@
+---
+title: "Code from demo 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r eval=FALSE}
+library(psych)
+
+## 2.1 Data structures 
+
+## vectors
+# vectors can be created in multiple ways as we learned last time, 
+a <- c(1,2,3,4)
+b <- sample(1:20, 4)
+c <- seq(1,20, length=4)
+
+## matrices
+
+# you can create matrices with cbind or rbind
+mat1 <- cbind(a,b,c)
+mat2 <- rbind(a,b,c)
+
+# different commands combine the vectors differently
+# resulting in different shapes of matrices
+mat1
+mat2 
+
+# indexing happens row, column
+mat1[2,3]
+mat1[2,]
+
+# another method of creating matrices
+d <- 1:9
+mat3 <- matrix(d, nrow=3)
+
+mat3*2
+mat3[c(1,3),c(1,3)]
+
+## lists
+# please note that you should not use command names (like 'list' or 'matrix') 
+# as variable names, they will mask the relevant commands
+list1 <- list('a',a, c('what', 'up'))
+str(list1)
+str(list1[2])
+str(list1[[2]])
+list1[[3]][2]
+
+## 2.2 Working with data
+
+## loading data
+data <- read.csv('E:\\juulia_R\\demo_data_share.csv')
+# oops, need to define that the separator is ; and not ,
+data <- read.csv('E:\\juulia_R\\demo_data_share.csv', sep=';')
+
+## taking a look at the data
+head(data)
+tail(data)
+summary(data)
+# describe is part of psych package, added loading package to the top of the 
+# script file 
+describe(data)
+
+## converting sex to factor
+data$sex <- factor(data$sex, levels=c(1,2), labels=c('female','male'))
+
+
+## indexing
+
+# you can use $ to select columns
+data$sex
+
+# you can combine $ and [] to select specific rows of a column
+data$age[11:20]
+
+# you can select severak rows & columns like this
+data[1:10,c('age','sex','weight','height')]
+
+# selecting all rows fulfilling the logical condition, and all columns for those
+data[data$sex == 'male',]
+
+
+## quick plotting
+# plot() will give you the type of plot it thinks you might want
+plot(data$sex, data$age)
+plot(data$age, data$height)
+with(data, plot(weight, height))
+
+# you can make the plot a bit more elaborate by adding parameters
+with(data, plot(height, weight, main='Height vs weight',
+                xlab="Height in cm", ylab="Weight in kg",
+                col = as.integer(sex)))
+
+# you can also define the type of plot you want
+# e.g. hist(), or boxplot()
+hist(data$height)
+
+# to save the figure, put function defining what format you want the
+# output in before the call for plot
+# this could also be png(), jpeg()
+pdf('E:\\juulia_R\\figures\\figure_1.pdf')
+# next, you build the plot
+with(data, plot(height, weight, main='Height vs weight',
+                xlab="Height in cm", ylab="Weight in kg",
+                col = as.integer(sex)))
+# and then tell R you're done with doing the plot by calling dev.off()
+dev.off()
+
+# You can also create the plot as normal and then run
+dev.copy(png,'myplot.png')
+dev.off()
+
+## 2.3 If-else
+
+# change this value to check how the if-else statement deals with different values
+value <- 500
+
+# start with the most specific case
+if (value == 0){
+  print('value is 0, not sure if that is odd or even')
+# then have a more general case
+} else if(value %% 2 == 0){
+  print(paste(value, 'is even'))
+# finally, catch all the other cases which were not outlined above
+} else {
+  print(paste(value, 'is odd'))
+}
+```
