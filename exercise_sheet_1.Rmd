@@ -11,15 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks you'll be able to follow and carry out the other tasks on this course. You will be able to run code from the console and script in RStudio, create variables, assign values to variables, use functions, load packages, save your script and construct simple loops. New concepts: variable, function, package, script, loop.
 
-## Resources
-* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8XfNt4LSfDrogW_K9rnZ6-_)
-* [You can find the slides shown in the video here](./images/slides_for_demo_1.pdf)
-* [You can see the code from the videos here](./code_demo_1.html)
-* [You can see the solutions for the exercises below here](./solutions_exercise_1.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
-
 # Exercises
 ## 1.1. How to use R 
+
+[Demo 1: R and RStudio](https://youtu.be/_tDXsy85vzU){target="_blank"}
+
 ### Calculations
+
+[Demo 1: Calculations](https://youtu.be/ddyMkPo0Yzg){target="_blank"}
+
 
 Q1.1.1 Try to run the following commands on the command line (bottom left)
 
@@ -36,6 +36,9 @@ Q1.1.2 What do you notice about the order of the calculations? Can you use brack
 Q1.1.3 Now try to run some simple calculations from the script window (top left). 
 
 ### Variables
+
+[Demo 1: Variables](https://youtu.be/bSBn3xkrZS8){target="_blank"}
+
 Q1.1.4 create a simple variable by running
 
 `x <- 1`	
@@ -58,6 +61,8 @@ Q1.1.8 If you just run `z+10`, this will not change the value of z. If you wante
 
 ### Functions
 
+[Demo 1: Functions](https://youtu.be/uRLZ1n7MIWk){target="_blank"}
+
 Q1.1.9 Run 
 
 `a <- sum(1,2,3)`
@@ -76,9 +81,16 @@ Tip: Remember that parentheses (and quotation marks) must always come in a pair.
 
 ### Saving your script
 
+[Demo 1: Errors and saving](https://youtu.be/8I0fIaLWVF0){target="_blank"}
+
 Q1.1.14 Make a folder on your computer for this course. Save the script file (.R) you have been working on in that folder.
 
 ## 1.2. Simple data types
+
+[Demo 1: Data types (lecture)](https://youtu.be/xaOYGGiPqzQ){target="_blank"}
+
+[Demo 1: Data types (demo)](https://youtu.be/O3bOPBlKWcc){target="_blank"}
+
 ### Numbers ("numeric")
 
 Q1.2.1 The function `typeof()` takes one argument, which is the object whose type (class) you want to find out. Use the function to check the class of the following:
@@ -157,6 +169,8 @@ Hint: you can combine logical operators with `&` (and) and  `|` (or)
 
 ## 1.3 Loops
 
+[Demo 1: Loops](https://youtu.be/tPvtgaeFQAA){target="_blank"}
+
 Q1.3.1 Try running the following simple for loop
 ```{r eval=FALSE}
 for(i in 2010:2020){
@@ -171,8 +185,16 @@ Q1.3.3 Make a loop which sums together values from 1 to 100 and in the end, prin
 Hint: If you get stuck, there's no shame in googling to get ideas how to accomplish something you don't know how to do in R! 
 
 ## 1.4 Packages
+[Demo 1: Packages](https://youtu.be/UZ2K7XxAcX8){target="_blank"}
+
 Q1.4.1 Install package 'psych'
 
 Q1.4.2 Load the package with `library`
 
 Q1.4.3 Try to run the following command from the psych package: `describe(vector2)`. If you run the command without errors and get a list of descriptive statistics (mean, sd, median etc), it means you have successfully installed psych
+
+## Resources
+* [You can find all of the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8XfNt4LSfDrogW_K9rnZ6-_)
+* [You can find the slides shown in the video here](./images/slides_for_demo_1.pdf)
+* [You can see the code from the videos here](./code_demo_1.html)
+* [You can see the solutions for the exercises here](./solutions_exercise_1.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
