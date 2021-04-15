@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This assignment is the only part of your course completion which will be checked by the instructor. You should complete this task and return it on Moodle by 29th May 2020 in order to get the course credits.
+This assignment is the only part of your course completion which will be checked by the instructor. You should complete this task and return it on Moodle by 24th June 2021 in order to get the course credits.
 
 ## Assignment
 

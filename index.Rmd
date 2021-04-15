@@ -17,12 +17,13 @@ This course does not assume any prior experience with R or even with programming
 
 There are four exercise sets in total, corresponding to four sets of lecture/demo videos. Because learning programming is hard and especially as a beginner it can be really difficult to know if your solution is almost right or completely off the mark, model solutions for the exercises are also available. You can take a look at them if you get stuck - the aim is for you to learn and discover what you can do with R, not get discouraged by the first error message. Apart from the model solutions, feel free to use as much google as you wish when doing the exercises. Googling for solutions to programming challenges is a valuable skill and people who program for a living use google constantly to check how to do something or what an error message means.
 
-The final assignment which is relevant to those of you who participated in the  Helsinki University, Spring 2020 execution of this course and wish to get course credit.
+The final assignment which is relevant to those of you who participated in the  Helsinki University, Spring 2021 execution of this course and wish to get course credit.
 
 ## Fantastic online resources for learning how to do data analysis in R
 * [R for data science (free ebook)](https://r4ds.had.co.nz/)
 * [YaRrr! The pirate's guide to R](https://bookdown.org/ndphillips/YaRrr/)
 * [Exploratory data analysis with R](https://bookdown.org/rdpeng/exdata/)
+* [Data Visualisation in R (course materials)](https://data-vis-2021.djnavarro.net/materials/)
 
 ## Contact
 If you have questions or comments, you can reach me by email at juulia dot suvilehto at iki dot fi or [as JSuvilehto on Twitter](https://twitter.com/JSuvilehto). If you find an error in the tasks or solutions, I'd be very happy if you can [submit it as an issue](https://github.com/jtsuvile/R_for_science/issues), or if you're not comfortable with GitHub, just send me a message.
