@@ -9,9 +9,9 @@ navbar:
     - text: "Exercises 1"
 #      icon: fa-newspaper-o
       href: exercise_sheet_1.html
-#    - text: "Exercises 2"
+    - text: "Exercises 2"
 #      icon: fa-newspaper-o
-#      href: exercise_sheet_2.html
+      href: exercise_sheet_2.html
 #    - text: "Exercises 3"
 #      icon: fa-newspaper-o
 #      href: exercise_sheet_3.html
@@ -26,8 +26,8 @@ navbar:
       menu:
         - text: "Solutions 1"
           href: solutions_exercise_1.html
-#        - text: "Solutions 2"
-#          href: solutions_exercise_2.html
+        - text: "Solutions 2"
+          href: solutions_exercise_2.html
 #        - text: "Solutions 3"
 #          href: solutions_exercise_3.html
 #        - text: "Solutions 4"

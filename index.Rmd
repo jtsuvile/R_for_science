@@ -25,5 +25,13 @@ The final assignment which is relevant to those of you who participated in the  
 * [Exploratory data analysis with R](https://bookdown.org/rdpeng/exdata/)
 * [Data Visualisation in R (course materials)](https://data-vis-2021.djnavarro.net/materials/)
 
+## Some resources for learning stats (with or without R)
+
+As we'll discuss during the course, it is important you know enough statistics when doing analyses with R. R will not babysit you, so you need to make sure you're able to make reasonable, justifiable statistical choices. This topic is beyond the scope of this course, but in case you feel unsure about your stats know-how, here are some free online resources I like:
+
+* [Improving your statistical inferences (Coursera)](https://www.coursera.org/learn/statistical-inferences) (You can always get access to Coursera course materials for free if you select 'audit')
+* [Learning Statistics with R (course materials)](https://learningstatisticswithr.com/)
+* [Seeing theory, a visual introduction to probability and statistics](https://seeing-theory.brown.edu/index.html)
+
 ## Contact
 If you have questions or comments, you can reach me by email at juulia dot suvilehto at iki dot fi or [as JSuvilehto on Twitter](https://twitter.com/JSuvilehto). If you find an error in the tasks or solutions, I'd be very happy if you can [submit it as an issue](https://github.com/jtsuvile/R_for_science/issues), or if you're not comfortable with GitHub, just send me a message.

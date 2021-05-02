@@ -284,6 +284,9 @@ $(document).ready(function () {
   <a href="exercise_sheet_1.html">Exercises 1</a>
 </li>
 <li>
+  <a href="exercise_sheet_2.html">Exercises 2</a>
+</li>
+<li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
 <li class="dropdown">
@@ -297,6 +300,9 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
     </li>
   </ul>
 </li>
@@ -321,17 +327,10 @@ $(document).ready(function () {
 <h2>Learning goals</h2>
 <p>After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements</p>
 </div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<ul>
-<li><a href="https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP">You can find the demo videos introducing new concepts and giving you tools to complete these exercises here</a></li>
-<li><a href="./images/slides_for_demo_2.pdf">You can find the slides shown in the video here</a></li>
-<li><a href="./code_demo_2.html">You can see the code from the videos here</a></li>
-<li><a href="./solutions_exercise_2.html">You can see the solutions for the exercises below here</a> (but do try to solve the tasks with help from the demo code and google before looking at solutions)</li>
-</ul>
-</div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
+<p><a href="https://youtu.be/wITUZhzovY8" target="_blank">Demo 2: Data structures (lecture)</a></p>
+<p><a href="https://youtu.be/kz8yWs_Qt28" target="_blank">Demo 2: Data structures (demo)</a></p>
 <div id="more-data-structures" class="section level2">
 <h2>2.1. More data structures</h2>
 <p>Q2.1.1 Create three vectors called x,y,z, each of them numeric and 4 elements long. Try to use a different function for creating each.</p>
@@ -351,10 +350,15 @@ $(document).ready(function () {
 </div>
 <div id="working-with-data" class="section level2">
 <h2>2.2 Working with data</h2>
+<p><a href="https://youtu.be/-NUHUhphDSU" target="_blank">Demo 2: Factors and NA (lecture)</a></p>
+<p><a href="https://youtu.be/gcHpLiGevFo" target="_blank">Demo 2: Data (lecture)</a></p>
+<p><a href="https://youtu.be/ssVgi2UkIqM" target="_blank">Demo 2: Loading and inspecting data (demo)</a></p>
 <div id="loading-data" class="section level3">
 <h3>Loading data</h3>
-<p>Q2.2.1 Download the exercise data to your local computer.</p>
+<p>Q2.2.1 Download the exercise data to your local computer. The data set is available on Moodle.</p>
 <p>Q2.2.2 Load the csv file with the command <code>data &lt;- read.csv([yourfilelocation], sep=';')</code>.</p>
+<p>Tip: If you're having trouble with data import (e.g. you're not getting the right number of columns, which in this case should be 55), you can also use the graphical &quot;import dataset&quot; (under the environment tab, in the top right window).</p>
+<p>Note: Import dataset should not be your default way of loading in data, but it can make life easier the first time you're importing something (especially when you're still a beginner at R). Import dataset will ouput the import command (with the correct parameters) to your console, so you can copy the command form there and paste it to the top of your script. This way you can run the import from the script window next time.</p>
 </div>
 <div id="first-looks-at-your-data" class="section level3">
 <h3>First looks at your data</h3>
@@ -374,15 +378,17 @@ $(document).ready(function () {
 </div>
 <div id="plotting" class="section level3">
 <h3>Plotting</h3>
+<p><a href="https://youtu.be/dIr-aBS7uPU" target="_blank">Demo 2: simple plots (demo)</a></p>
 <p>Q2.2.13 Run <code>plot(data[,c('Age_calculated','Healthy_pattern')])</code>, look at the resulting plot, and then run <code>plot(data[,c('co_EDUC_fam_clas','Healthy_pattern')])</code>. You used the same command, why do the plots look different?</p>
 <p>Tip: You can use the arrows at the top of plot viewer to view earlier plots you've made. We will go over combining multiple plots in the same figure next week.</p>
 <p>Q2.2.14 Let's build a histogram of the use of fresh vegetables in this sample! Start by running <code>hist(data$Freshveg)</code></p>
 <p>Q2.2.15 Looks like we need more bars to get a better look, add parameter <code>breaks=20</code>. You can play around with the number to find one which feels good to you.</p>
 <p>Q2.2.16 Try adding x and y axis labels with <code>xlab=&quot;Fresh vegetable consumption frequency (times per week)&quot;</code> and <code>ylab=&quot;Number of participants&quot;</code></p>
 <p>Q2.2.17 Add title to your plot with the parameter <code>main</code></p>
-<p>Q2.2.18 Add a colour to the bars with <code>col</code>. Tip: You can get a list of acceptable colour name strings with <code>colours()</code> (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you're just looking up what options you have and once you've decided, you do not need to run the check again). You can also define your own rgb colour with rgb()</p>
+<p>Q2.2.18 Add a colour to the bars with <code>col</code>.</p>
+<p>Tip: You can get a list of acceptable colour name strings with <code>colours()</code> (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you're just looking up what options you have and once you've decided, you do not need to run the check again). You can also define your own rgb colour with rgb()</p>
 <p>Q2.2.19 Once you're happy with your plot, save it as a pdf-file.</p>
-<p>Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device.</p>
+<p>Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device. If this is very difficult, you can also click Export &gt; Save as PDF (but saving from the script is preferred for replicability)</p>
 <p>Q2.2.20 Run the following code</p>
 <pre class="r"><code>with(data, hist(Freshveg[co_Gender==&#39;male&#39;], 
                 col=rgb(0,0,1,0.5), 
@@ -407,6 +413,7 @@ legend(&quot;topright&quot;, legend=c(&quot;Girls&quot;, &quot;Boys&quot;),
 </div>
 <div id="if-else-structure" class="section level2">
 <h2>2.3 If-else structure</h2>
+<p><a href="https://youtu.be/2sS72Eei7uk" target="_blank">Demo 2: If-else</a></p>
 <p>Q2.3.1 Run the following loop</p>
 <pre class="r"><code># an example loop for going over 20 first rows of the data set
 for(row in 1:20){ # if you wanted to go over the whole data set, you would set the end to be nrow(data)
@@ -418,10 +425,20 @@ for(row in 1:20){ # if you wanted to go over the whole data set, you would set t
     cat(paste0(&quot;Subject &quot;, data$ID_number[row], &quot; eats chocolate.\n&quot;))
   }
 }</code></pre>
+<p>Tip: The string &quot;\n&quot; tells the computer to insert a line break.</p>
 <p>Q2.3.2 Edit the loop above so that if the subject eats chocolate and their weekly chocolate consumption is more than the average amount (function mean, remember to use na.rm=T) it will output &quot;Subject X eats more than average amount of chocolate per week&quot; and if they eat less than the average amount, it will ouput &quot;Subject X eats less than average amount of chocolate per week&quot;</p>
 <p>Q2.3.3 Create a new loop which goes over each row of your data frame. For each row, the loop will print &quot;This is subject number &quot; + the subject's ID number</p>
 <p>Q2.3.4 Continue building the loop by adding another sentence to the output. If the subject is male, the loop should print &quot;He is X years old.&quot; and if the subject is female, it should print &quot;She is X years old.&quot; If the subject's gender is not known (is.na), it should print out &quot;They are X years old.&quot;</p>
 <p>Tip: Control for NA first, otherwise you will get an error when the loop encounters its first NA.</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP" target="_blank">You can find the demo videos introducing new concepts and giving you tools to complete these exercises here</a></li>
+<li><a href="./images/slides_for_demo_2.pdf" target="_blank">You can find the slides shown in the video here</a></li>
+<li><a href="./code_demo_2.html" target="_blank">You can see the code from the videos here</a></li>
+<li><a href="./solutions_exercise_2.html" target="_blank">You can see the solutions for the exercises here</a> (but do try to solve the tasks with help from the demo code and google before looking at solutions)</li>
+</ul>
 </div>
 </div>
 

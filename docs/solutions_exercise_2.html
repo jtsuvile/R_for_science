@@ -284,6 +284,9 @@ $(document).ready(function () {
   <a href="exercise_sheet_1.html">Exercises 1</a>
 </li>
 <li>
+  <a href="exercise_sheet_2.html">Exercises 2</a>
+</li>
+<li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
 <li class="dropdown">
@@ -297,6 +300,9 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
     </li>
   </ul>
 </li>
@@ -442,6 +448,13 @@ for(row in 1:20){ # if you wanted to go over the whole data set, you would set t
   }
 }
 
+# Q2.3.3
+for(row in 1:nrow(data)){
+  cat(paste0(&quot;This is subject number &quot;,
+             data$ID_number[row], &quot;.\n&quot;))
+}
+
+
 # Q2.3.4
 
 for(row in 1:nrow(data)){
@@ -453,19 +466,6 @@ for(row in 1:nrow(data)){
     pronoun = &#39;He is &#39;
   }
   cat(paste0(&quot;This is subject number &quot;, data$ID_number[row], &#39;. &#39;, pronoun, data$Age_calculated[row], &#39; years old.\n&#39;))
-}
-
-
-row = 6
-for(row in 1:nrow(data)){
-  if(is.na(data$co_Gender[row])){
-    print(&#39;Ei mit????n hajuu&#39;)
-    a &lt;- 1+1
-  }else if(data$co_Gender[row]==1){
-    print(&#39;It\&#39;s a girl&#39;)
-  } else {
-    print(&#39;It\&#39;s a boy&#39;)
-  }
 }</code></pre>
 
 &nbsp;

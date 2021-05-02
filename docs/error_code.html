@@ -284,6 +284,9 @@ $(document).ready(function () {
   <a href="exercise_sheet_1.html">Exercises 1</a>
 </li>
 <li>
+  <a href="exercise_sheet_2.html">Exercises 2</a>
+</li>
+<li>
   <a href="exercise_sheet_5.html">Final assignment</a>
 </li>
 <li class="dropdown">
@@ -297,6 +300,9 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="solutions_exercise_1.html">Solutions 1</a>
+    </li>
+    <li>
+      <a href="solutions_exercise_2.html">Solutions 2</a>
     </li>
   </ul>
 </li>
@@ -345,36 +351,8 @@ vect2 &lt;- rnorm(20, mean=0, st.dev=5)
 
 # Q7
 for(i in 1:5{
-  print(&quot;The number is&quot;, l)
+  print(&quot;The number is&quot;, ı)
 }</code></pre>
-</div>
-<div id="mystery-code" class="section level2">
-<h2>Mystery code</h2>
-<pre class="r"><code># Can you (together with your group) figure out what
-# this code does? Can you find ways to make the code shorter?
-
-data1 &lt;- rnorm(100)
-data2 &lt;- rnorm(100)
-data3 &lt;- rnorm(100)
-
-data &lt;- c(data1, data2)
-data &lt;- c(data, data3)
-
-x &lt;- sum(is.na(data))
-y &lt;- data &lt; 0
-z &lt;- data &gt; 0
-
-hist(data)
-
-hist(data, col=&#39;red&#39;)
-
-hist(data, col=&#39;red&#39;, breaks=15)
-
-hist(data, col=&#39;red&#39;, breaks=15, main=&#39;Histogram of normally distributed data&#39;)</code></pre>
-<pre class="r"><code># You can get the same output with just
-data &lt;- rnorm(300)
-hist(data, col=&#39;red&#39;, breaks=15, main=&#39;Histogram of normally distributed data&#39;)</code></pre>
-<p><img src="error_code_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 
 &nbsp;

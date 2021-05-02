@@ -11,13 +11,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you'll be able to read in csv-formatted data, use different functions to look at the data, create simple plots of the data, and to save the plots you created. New concepts: data structures, factors, NA, writing to file, plot elements
 
-## Resources
-* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP)
-* [You can find the slides shown in the video here](./images/slides_for_demo_2.pdf)
-* [You can see the code from the videos here](./code_demo_2.html)
-* [You can see the solutions for the exercises below here](./solutions_exercise_2.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
-
 # Exercises
+
+[Demo 2: Data structures (lecture)](https://youtu.be/wITUZhzovY8){target="_blank"}
+
+[Demo 2: Data structures (demo)](https://youtu.be/kz8yWs_Qt28){target="_blank"}
+
 ## 2.1. More data structures
 Q2.1.1 Create three vectors called x,y,z, each of them numeric and 4 elements long. Try to use a different function for creating each.
 
@@ -38,10 +37,21 @@ Q2.1.6 Create a list whose elements are your matrices from Q2.1.2 and Q2.1.4.
 Q2.1.7 Through the list, access the first element of the first matrix.
 
 ## 2.2 Working with data
+
+[Demo 2: Factors and NA (lecture)](https://youtu.be/-NUHUhphDSU){target="_blank"}
+
+[Demo 2: Data (lecture)](https://youtu.be/gcHpLiGevFo){target="_blank"}
+
+[Demo 2: Loading and inspecting data (demo)](https://youtu.be/ssVgi2UkIqM){target="_blank"}
+
 ### Loading data
-Q2.2.1 Download the exercise data to your local computer.
+Q2.2.1 Download the exercise data to your local computer. The data set is available on Moodle.
 
 Q2.2.2 Load the csv file with the command `data <- read.csv([yourfilelocation], sep=';')`.
+
+Tip: If you're having trouble with data import (e.g. you're not getting the right number of columns, which in this case should be 55), you can also use the graphical "import dataset" (under the environment tab, in the top right window). 
+
+Note: Import dataset should not be your default way of loading in data, but it can make life easier the first time you're importing something (especially when you're still a beginner at R). Import dataset will ouput the import command (with the correct parameters) to your console, so you can copy the command form there and paste it to the top of your script. This way you can run the import from the script window next time.
 
 ### First looks at your data
 Q2.2.3 Take an initial look at the data by printing out the first five rows with `head`.
@@ -67,6 +77,8 @@ Q2.2.12 Use square bracket notation and a vector of column names to access age, 
 
 ### Plotting
 
+[Demo 2: simple plots (demo)](https://youtu.be/dIr-aBS7uPU){target="_blank"}
+
 Q2.2.13 Run `plot(data[,c('Age_calculated','Healthy_pattern')])`, look at the resulting plot, and then run `plot(data[,c('co_EDUC_fam_clas','Healthy_pattern')])`. You used the same command, why do the plots look different? 
 
 Tip: You can use the arrows at the top of plot viewer to view earlier plots you've made. We will go over combining multiple plots in the same figure next week.
@@ -80,11 +92,12 @@ Q2.2.16 Try adding x and y axis labels with `xlab="Fresh vegetable consumption f
 Q2.2.17 Add title to your plot with the parameter `main`
 
 Q2.2.18 Add a colour to the bars with `col`. 
+
 Tip: You can get a list of acceptable colour name strings with `colours()` (Note: Checking the colours is something it would be fine to just type into the console and not include in the script - you're just looking up what options you have and once you've decided, you do not need to run the check again). You can also define your own rgb colour with rgb()
 
 Q2.2.19 Once you're happy with your plot, save it as a pdf-file. 
 
-Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device.
+Tip: Remember to put your pdf() command before you build the plot and run dev.off() after you're done until the console says null device. If this is very difficult, you can also click Export > Save as PDF (but saving from the script is preferred for replicability)
 
 Q2.2.20 Run the following code
 ```{r eval=FALSE}
@@ -114,6 +127,8 @@ Tip: If you want to color by categorical variable, in scatter plots it is easier
 
 ## 2.3 If-else structure
 
+[Demo 2: If-else](https://youtu.be/2sS72Eei7uk){target="_blank"}
+
 Q2.3.1 Run the following loop
 ```{r eval=FALSE}
 # an example loop for going over 20 first rows of the data set
@@ -127,6 +142,7 @@ for(row in 1:20){ # if you wanted to go over the whole data set, you would set t
   }
 }
 ```
+Tip: The string "\\n" tells the computer to insert a line break. 
 
 Q2.3.2 Edit the loop above so that if the subject eats chocolate and their weekly chocolate consumption is more than the average amount (function mean, remember to use na.rm=T) it will output "Subject X eats more than average amount of chocolate per week" and if they eat less than the average amount, it will ouput "Subject X eats less than average amount of chocolate per week"
 
@@ -136,3 +152,8 @@ Q2.3.4 Continue building the loop by adding another sentence to the output. If t
 
 Tip: Control for NA first, otherwise you will get an error when the loop encounters its first NA.
 
+## Resources
+* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8UbNBXn2LAD2WvpG1hotOCP){target="_blank"}
+* [You can find the slides shown in the video here](./images/slides_for_demo_2.pdf){target="_blank"}
+* [You can see the code from the videos here](./code_demo_2.html){target="_blank"}
+* [You can see the solutions for the exercises here](./solutions_exercise_2.html){target="_blank"} (but do try to solve the tasks with help from the demo code and google before looking at solutions)

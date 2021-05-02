@@ -132,6 +132,13 @@ for(row in 1:20){ # if you wanted to go over the whole data set, you would set t
   }
 }
 
+# Q2.3.3
+for(row in 1:nrow(data)){
+  cat(paste0("This is subject number ",
+             data$ID_number[row], ".\n"))
+}
+
+
 # Q2.3.4
 
 for(row in 1:nrow(data)){
@@ -145,16 +152,4 @@ for(row in 1:nrow(data)){
   cat(paste0("This is subject number ", data$ID_number[row], '. ', pronoun, data$Age_calculated[row], ' years old.\n'))
 }
 
-
-row = 6
-for(row in 1:nrow(data)){
-  if(is.na(data$co_Gender[row])){
-    print('Ei mit????n hajuu')
-    a <- 1+1
-  }else if(data$co_Gender[row]==1){
-    print('It\'s a girl')
-  } else {
-    print('It\'s a boy')
-  }
-}
 ```
