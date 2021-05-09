@@ -11,17 +11,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After completing these tasks, you'll be able to convert raw data into tidy format. You will also be able to make publication quality plots using ggplot2. New concepts: tidy data, grammar of graphics, aesthetics. New packages: tidyverse (specifically tidyr, dplyr, ggplot2), patchwork
 
-## Resources
-* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WHa_aERVDo6s-TVARaa-jJ)
-* [You can find the slides shown in the video here](./images/slides_for_demo_3.pdf)
-* [You can see the code from the videos here](./code_demo_3.html)
-* [You can see the solutions for the exercises below here](./solutions_exercise_3.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
-* [A great YouTube tutorial about data tidying](https://www.youtube.com/playlist?list=PL9HYL-VRX0oQOWAFoKHFQAsWAI3ImbNPk)
-* [A potentially interesting thread about data visualisation](https://threadreaderapp.com/thread/1230520003155447809.html)
-
 # Exercises
 ## 3.1 Tidy data
-Please note that it's not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Tuesday 12th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed! In the mean time, you can complete these tasks with the example data set.
+
+[Demo 3: Tidy data (talk)](https://youtu.be/x9w8oaWUIWo){target="_blank"}
+Note: The whole data wrangling section of this "course" relies on concepts in this video so make sure you watch this or some other video explaining tidy data (with respect to the tidyverse family of packages in R)
+
+[Demo 3: Tidy data (demo)](https://youtu.be/w7CZjdWwcxk){target="_blank"}
+
+Please note that it's not always easy to decide how to get your data from its current state to tidy! If you feel a little overwhelmed with your own data set and how to get it to where it needs to be, you can book a one-on-one meeting with me for Monday 17th May (see Moodle for how). We can go over your specific project and I can give you tips on how to proceed! In the mean time, you can complete these tasks with the example data set.
+
 
 ### Loading and inspecting data
 If your own data set is already clean, you can also practice these steps with the exercise_data_messy.csv which is available on Moodle. On the other hand, if you have raw data which needs cleaning, you can also do this on your own data set. The solutions are shown on the exercise data. You'll need to have the package tidyverse installed and loaded to work these exercises. See a handy cheat sheet for many of the commands we're using today [here](./images/data-import.pdf) 
@@ -32,11 +31,29 @@ Tip: If your csv uses semicolon (;) instead of comma as a separator, you should 
 
 ### Wrangling data 
 
-Q3.1.2 What needs to get done to make your data tidy? For example, do you need to go from long to wide (`spread`) or wide to long (`gather`) or join data from different files (`full_join`)? 
+Note: A more recent version of tidyverse includes functions `pivot_wider` and `pivot_longer`, which are recommended for use instead of `spread` and `gather`, respectively. You can choose to use either! The syntax is slightly different though, so if in the demo we ran 
+
+```{r eval=FALSE}
+data_long <- data %>% gather(Partner:M_Stranger, key='person', value='emotional_bond')
+```
+
+to do the same with pivot_longer, we would use
+
+```{r eval=FALSE}
+data_long <- data %>% pivot_longer(cols=Partner:M_Stranger, names_to='person', values_to='emotional_bond')
+```
+
+The end result is the same in both cases (except pivot_longer sorts the data by subid and gather sorts the data by person). For more information, see the function help or [see here](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+
+Q3.1.2 What needs to get done to make your data tidy? For example, do you need to go from long to wide (`spread` or `pivot_wider`) or wide to long (`gather` or `pivot_longer`) or join data from different files (`full_join`)? 
 
 Q3.1.3 Try to do that! In the example data set, I would argue that it makes most sense to have the data in a wide format (i.e. each food type has its own column). See if you can get it to there!
 
 ### Manipulating data
+
+[Demo 3: Manipulating data (talk)](https://youtu.be/2yZ1geGtvWg){target="_blank"}
+
+[Demo 3: Manipulating data (demo)](https://youtu.be/nPK2HwssTHw){target="_blank"}
 
 Q3.1.4 Inspect your data as we learned last time. How many missing values? Are there any values that might be wrongly coded NA's?
 
@@ -53,6 +70,10 @@ Q3.1.8 Create a new column by combining values from existing columns with `mutat
 Q3.1.9 Use `group_by` to group your data according to some factor(s) and then use `tally()` (doesn't need any arguments if you use %>% to give it your data) to count occurrences in those groups.
 
 ## 3.2 Better plotting
+
+[Demo 3: Plotting with ggplot2 (talk)](https://youtu.be/Hh8ZvPaKBeg){target="_blank"}
+
+[Demo 3: Plotting with ggplot2 (demo)](https://youtu.be/9jUI1Y-232c){target="_blank"}
 
 ### Let's remake the bar chart from last set of exercises, but this time with ggplot2.
 
@@ -85,7 +106,11 @@ To superimpose a normal distribution curve, we can add `stat_function(fun = dnor
 
 Q3.2.10 Now save the plot.
 
-Tip: You cann either put your `pdf()` and `dev.off()` calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with `p1 <- ggplot` etc.) 
+Tip: You have three different ways to do the saving. From easiest to most difficult, they are 
+
+1. You can also save plot via the graphical interface with "Export" (plots tab, lower right hand side). However, I recommend you try to minimise the number of point-and-click operations you do with R.
+2. When you use ggplot2 to create your plots, you can use `ggsave(<filename>)` after making your plot to save it. NB: This might not work if you use base R or some other package to make your plot.
+3. You can also use `pdf()` and `dev.off()` as you did before. If you do this, you can either put your `pdf()` and `dev.off()` calls around the whole thing, or you can first assign the whole plot call to a variable (so the first line starts with `p1 <- ggplot` etc.).  
 
 ###  Now make a figure with your own data, if you have some!
 
@@ -112,3 +137,12 @@ Q3.2.18 Which one do you prefer? How would you add a third plot?
 Think of a plot type you would like to do with your own data. Can you figure out how to do that in ggplot2? If you have made a plot from your own data with ggplot2, please share it on the course forum to show off and to motivate others!
 
 Tip: Google (especially the image search) is your best friend in this! You can google ggplot2 <whateverplot> (e.g. ggplot2 violin plot) to find examples of how to do that type of plot in ggplot2.
+
+
+## Resources
+* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WHa_aERVDo6s-TVARaa-jJ)
+* [You can find the slides shown in the video here](./images/slides_for_demo_3.pdf)
+* [You can see the code from the videos here](./code_demo_3.html)
+* [You can see the solutions for the exercises here](./solutions_exercise_3.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
+* [A great YouTube tutorial about data tidying](https://www.youtube.com/playlist?list=PL9HYL-VRX0oQOWAFoKHFQAsWAI3ImbNPk)
+* [A potentially interesting thread about data visualisation](https://threadreaderapp.com/thread/1230520003155447809.html)

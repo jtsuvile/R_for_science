@@ -24,6 +24,10 @@ After completing these tasks, you will know how to run simple analyses in R. You
 # Exercises
 ## 4.1 Simple statistical tests
 
+[Demo 4: Statistical tests (talk)](https://youtu.be/-NSf9MdcBVA){target="_blank"}
+
+[Demo 4: Statistical tests (demo)](https://youtu.be/wK9j4m4goPY){target="_blank"}
+
 Start by loading in and inspecting your data as you have done in previous tasks. I recommend you do these tasks on a data set which you have already made tidy & you know that the data import works as it should.
 
 Q4.1.1 Select a continuous variable and a factor with two levels, e.g. sex. Run a t-test (command `t.test`) on these variables.
@@ -37,6 +41,11 @@ Tip: this is something you can answer with the built-in help!
 Q4.1.4 By default, R assumes unequal variances and runs Welch's t-test. Can you find out how to tell the t.test function that you assume equal variances in the two groups?
 
 ## 4.2 Testing assumptions
+
+[Demo 4: Testing assumptions (talk)](https://youtu.be/SqsH6iP8M7k){target="_blank"}
+
+[Demo 4: Testing assumptions (demo)](https://youtu.be/bhzyEZNJHXc){target="_blank"}
+
 Q4.2.1 Are we justified in assuming equal variances in our t-test? Find out by testing for homogeneity of variance. If your data are normally distributed, you can use `var.test` for F-test or `bartlett.test` (for more than two groups). If your data are not normally distributed, you can use `leveneTest` from the `car` package (can also manage more than two groups) or `fligner.test`.
 
 Tip: At least the Levene test requires that your explanatory variable (the one after the ~) is a factor. If you did not take the time to convert your factors into factors when importing data, do that now!
@@ -50,6 +59,11 @@ Q4.2.3 Choose one continuous variable from your data and see if it is normally d
 Q4.2.4 Then, also run Shapiro-Wilk test of normality (`shapiro.test`)
 
 ## 4.3 Regression
+
+[Demo 4: (Linear) regression models (talk)](https://youtu.be/mw8WGYYTWj0){target="_blank"}
+
+[Demo 4: Regression (demo)](https://youtu.be/tppKi3hSA4s){target="_blank"}
+
 For the regression tasks, find a continuous dependent variable and a number of independent variables
 
 Q4.3.1 Create a simple linear regression with `lm(y ~ x, data=data)` (where y is your dependent variable, x is one of your independent variables and the latter data is the name of your dataframe).
@@ -62,3 +76,20 @@ Q4.3.4 Compare these two models with `anova`. Does the more complex model fit yo
 
 ## Bonus: logistic regression
 Create a new binary variable (or use one you have already) to run logistic regression. 
+
+[Demo 4: Recap](https://youtu.be/ARZJluj_ehE){target="_blank"}
+
+
+## Course feedback UPDATE LINK!!
+Now that you made it this far, would you please take a few minutes and fill in the course feedback form [which you can find here](https://forms.gle/S8TddGUbJofkPHKNA). It would mean a lot to me if you did that and it shouldn't take too long. Thanks in advance!
+
+
+## Resources
+* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
+* [You can find the slides shown in the video here](./images/slides_for_demo_4.pdf)
+* [You can see the code from the videos here](./code_demo_4.html)
+* [You can see the solutions for the exercises below here](./solutions_exercise_4.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
+* [An approachable introduction to linear mixed effects modeling with implementation in R (a pre-print)](https://psyarxiv.com/9vghm/)
+* [Specifying multilevel models in R](http://www.rensenieuwenhuis.nl/r-sessions-16-multilevel-model-specification-lme4/)
+* [Twitter thread about ANOVA in R and why it's not always as simple as one might hope](https://twitter.com/WeAreRLadies/status/1223790298024726528)
+* [A tutorial for logistic regression](https://stats.idre.ucla.edu/r/dae/logit-regression/)

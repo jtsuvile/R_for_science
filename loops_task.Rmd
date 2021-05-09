@@ -1,0 +1,62 @@
+---
+title: "Webinar 2 tasks"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Make loops work
+
+This exercise is a somewhat silly example of constructing loops, but it can hopefully illustrate a more general use case where you need to load in multiple files (that have been named in a systematic way), manipulate the data in some way and then save the results into one data structure.
+
+Your task is to take the code below, and edit the middle part to be a loop instead of copy&paste of the same code. Make the loop run over the 19 different files (named ouput_1.jpg, ouput_2.jpg etc) from the zip file. Then you can run the last lines of code as-is to convert the images into gif and to show that gif.
+
+[Get a .zip of the files associated with the task here](./images/loop_images.zip)
+
+```{r, eval=FALSE}
+
+
+library(magick) #NB: remember to install magick if you don't already have it!
+
+### edit from here to the next bit with ###
+
+# change this file location to point to the folder where you extracted the images from the zip-file
+filelocation <- '/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/' 
+
+# reading in image from a file
+new_image_1 <- image_read(paste0(filelocation, 'ouput_1.jpg'))
+# adding annotations to the image
+new_image_1 <- image_annotate(new_image_1, 'You did it!!', color = "white", size = 50, gravity='north')
+# checking to see how it looks like
+print(new_image_1)
+
+new_image_2 <- image_read(paste0(filelocation, 'ouput_2.jpg'))
+new_image_2 <- image_annotate(new_image_2, 'You did it!!', color = "white", size = 50, gravity='north')
+print(new_image_2)
+
+new_image_3 <- image_read(paste0(filelocation, 'ouput_3.jpg'))
+new_image_3 <- image_annotate(new_image_3, 'You did it!!', color = "white", size = 50, gravity='north')
+print(new_image_3)
+
+# combine all of the images into one vector
+img_list <- c(new_image_1, new_image_2, new_image_3)
+
+# Tip: when changing the code to a loop, you should first initialise an empty vector BEFORE the loop like this: img_list <- vector()
+# then, instead of doing one big combine at the end, on every iteration of the loop, you should do this: img_list <- c(img_list, new_image)
+# this will append (add to the end) the newly loaded image so that the list gets longer on every iteration of the loop
+
+### see if it worked! ###
+# (you should not need to edit anything below this point)
+
+# join the images together
+img_joined <- image_join(img_list)
+
+# animate at 10 frames per second
+img_animated <- image_animate(img_joined, fps = 10)
+
+# view animated image
+img_animated
+
+```

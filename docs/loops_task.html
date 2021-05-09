@@ -11,7 +11,7 @@
 
 
 
-<title>Final assignment</title>
+<title>Webinar 2 tasks</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -324,36 +324,56 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Final assignment</h1>
+<h1 class="title toc-ignore">Webinar 2 tasks</h1>
 
 </div>
 
 
-<p>This assignment is the only part of your course completion which will be checked by the instructor. You should complete this task and return it on Moodle by 24th June 2021 in order to get the course credits.</p>
-<div id="assignment" class="section level2">
-<h2>Assignment</h2>
-<p>Create altogether three analyses and publication quality figures from your own data, using an exclusively R workflow.</p>
-</div>
-<div id="details" class="section level2">
-<h2>Details</h2>
-<p>You should return three items which you could include in the results section of a paper. One of the items must be a figure and one must be an analysis (simple or complex), while the third item can be either. You can use the same data for all three or use different data sets for all, whichever you prefer. The analyses and figures can be related (e.g. an ANOVA and interaction plot), but they don't have to be.</p>
-<p><strong>For figures</strong>, make sure your plot type conveys the relevant information. Make sure the texts, such as axis labels, tick marks, and legends, are a good size and understandable to a naive reader. Pay attention to selecting the theme (if using ggplot), colours, and element sizes. <strong>For analyses</strong>, make sure the type of analysis you run can answer the question you are asking, and that your data fulfils the necessary requirements for that type of analysis (e.g. number of observations, distribution of variables, amount of missing values). If you run multiple tests to answer a single hypothesis (e.g. multiple t-tests for different types of foods), remember to do multiple comparison correction.</p>
-</div>
-<div id="handing-in-the-assignment" class="section level2">
-<h2>Handing in the assignment</h2>
-<p>You should return one .zip folder to Moodle. This should contain the <strong>code</strong> and the <strong>final result(s)</strong> for your analyses as described below.</p>
-<div id="code" class="section level3">
-<h3>Code</h3>
-<p>Include clearly commented code for your data handling and analysis and figure creation as .R file(s). For analyses, comment in the code the reasoning why this analysis is appropriate (what requirements does the analysis place on your data and how your data complies with these, with tests if necessary). You do not need to include data, but make sure your code makes clear what operations you do to your data.</p>
-</div>
-<div id="results" class="section level3">
-<h3>Results</h3>
-<p>Include a pdf with one paragraph briefly(!) explaining the data you're working with and outcomes of the three items you created. For figures, you should include the figure itself and a caption, specifying any analyses which might be part of the figure (e.g. comparing two groups: which analysis was used, how is significance defined). For analyses, you should include the sentence(s) you would write about this analysis in the methods section and the sentence(s) or table which you would use in the results section to describe your outcome.</p>
-</div>
-</div>
-<div id="grading" class="section level2">
-<h2>Grading</h2>
-<p>Pass/fail.</p>
+<div id="make-loops-work" class="section level2">
+<h2>Make loops work</h2>
+<p>This exercise is a somewhat silly example of constructing loops, but it can hopefully illustrate a more general use case where you need to load in multiple files (that have been named in a systematic way), manipulate the data in some way and then save the results into one data structure.</p>
+<p>Your task is to take the code below, and edit the middle part to be a loop instead of copy&amp;paste of the same code. Make the loop run over the 19 different files (named ouput_1.jpg, ouput_2.jpg etc) from the zip file. Then you can run the last lines of code as-is to convert the images into gif and to show that gif.</p>
+<p><a href="./images/loop_images.zip">Get a .zip of the files associated with the task here</a></p>
+<pre class="r"><code>library(magick) #NB: remember to install magick if you don&#39;t already have it!
+
+### edit from here to the next bit with ###
+
+# change this file location to point to the folder where you extracted the images from the zip-file
+filelocation &lt;- &#39;/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/&#39; 
+
+# reading in image from a file
+new_image_1 &lt;- image_read(paste0(filelocation, &#39;ouput_1.jpg&#39;))
+# adding annotations to the image
+new_image_1 &lt;- image_annotate(new_image_1, &#39;You did it!!&#39;, color = &quot;white&quot;, size = 50, gravity=&#39;north&#39;)
+# checking to see how it looks like
+print(new_image_1)
+
+new_image_2 &lt;- image_read(paste0(filelocation, &#39;ouput_2.jpg&#39;))
+new_image_2 &lt;- image_annotate(new_image_2, &#39;You did it!!&#39;, color = &quot;white&quot;, size = 50, gravity=&#39;north&#39;)
+print(new_image_2)
+
+new_image_3 &lt;- image_read(paste0(filelocation, &#39;ouput_3.jpg&#39;))
+new_image_3 &lt;- image_annotate(new_image_3, &#39;You did it!!&#39;, color = &quot;white&quot;, size = 50, gravity=&#39;north&#39;)
+print(new_image_3)
+
+# combine all of the images into one vector
+img_list &lt;- c(new_image_1, new_image_2, new_image_3)
+
+# Tip: when changing the code to a loop, you should first initialise an empty vector BEFORE the loop like this: img_list &lt;- vector()
+# then, instead of doing one big combine at the end, on every iteration of the loop, you should do this: img_list &lt;- c(img_list, new_image)
+# this will append (add to the end) the newly loaded image so that the list gets longer on every iteration of the loop
+
+### see if it worked! ###
+# (you should not need to edit anything below this point)
+
+# join the images together
+img_joined &lt;- image_join(img_list)
+
+# animate at 10 frames per second
+img_animated &lt;- image_animate(img_joined, fps = 10)
+
+# view animated image
+img_animated</code></pre>
 </div>
 
 &nbsp;
