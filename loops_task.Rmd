@@ -1,5 +1,5 @@
 ---
-title: "Webinar 2 tasks"
+title: "Webinar 3 tasks"
 output: html_document
 ---
   
@@ -20,7 +20,7 @@ Your task is to take the code below, and edit the middle part to be a loop inste
 
 library(magick) #NB: remember to install magick if you don't already have it!
 
-### edit from here to the next bit with ###
+### edit from here ###
 
 # change this file location to point to the folder where you extracted the images from the zip-file
 filelocation <- '/Users/juusu53/Documents/projects/opetus/R_for_scientists/course_materials/' 
