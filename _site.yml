@@ -15,9 +15,9 @@ navbar:
     - text: "Exercises 3"
 #      icon: fa-newspaper-o
       href: exercise_sheet_3.html
-#    - text: "Exercises 4"
+    - text: "Exercises 4"
 #      icon: fa-newspaper-o
-#      href: exercise_sheet_4.html
+      href: exercise_sheet_4.html
     - text: "Final assignment"
 #      icon: fa-newspaper-o
       href: exercise_sheet_5.html
@@ -30,8 +30,8 @@ navbar:
           href: solutions_exercise_2.html
         - text: "Solutions 3"
           href: solutions_exercise_3.html
-#        - text: "Solutions 4"
-#          href: solutions_exercise_4.html
+        - text: "Solutions 4"
+          href: solutions_exercise_4.html
 #    - text: "Webinar 2 tasks"
 #      icon: fa-newspaper-o
 #      href: error_code.html

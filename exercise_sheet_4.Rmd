@@ -9,17 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Learning goals
 
-After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to run relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions. Useful packages for getting the analysis output in human readable/paper ready format yarrr, apaTables, questionr.
-
-## Resources
-* [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
-* [You can find the slides shown in the video here](./images/slides_for_demo_4.pdf)
-* [You can see the code from the videos here](./code_demo_4.html)
-* [You can see the solutions for the exercises below here](./solutions_exercise_4.html) (but do try to solve the tasks with help from the demo code and google before looking at solutions)
-* [An approachable introduction to linear mixed effects modeling with implementation in R (a pre-print)](https://psyarxiv.com/9vghm/)
-* [Specifying multilevel models in R](http://www.rensenieuwenhuis.nl/r-sessions-16-multilevel-model-specification-lme4/)
-* [Twitter thread about ANOVA in R and why it's not always as simple as one might hope](https://twitter.com/WeAreRLadies/status/1223790298024726528)
-* [A tutorial for logistic regression](https://stats.idre.ucla.edu/r/dae/logit-regression/)
+After completing these tasks, you will know how to run simple analyses in R. You will know how to test for normality of your data and know how to run relevant non-parametric tests if your data is not suitable for parametric tests. You will know how to construct formulae for regression analyses. You will have also tried running regression analyses and comparing regression model fits. New concepts: This session will not introduce new programming concepts. We will focus on translating what you already know about statistical analyses to R and implementing things we learned from the previous sessions. Useful packages for getting the analysis output in human readable/paper ready format include yarrr, apaTables, and questionr.
 
 # Exercises
 ## 4.1 Simple statistical tests
@@ -34,7 +24,7 @@ Q4.1.1 Select a continuous variable and a factor with two levels, e.g. sex. Run 
 
 Q4.1.2 From the output, find the *t-statistic*, *degrees of freedom* and *p-value*. Can you also find *confidence interval* and *means in both groups*?
 
-Q4.1.3 Can you find out how to change the test from two-sided to one-sided. Run the same test with one-sided alternative hypothesis (you can pick which direction makes more sense).
+Q4.1.3 Can you find out how to change the test from two-sided to one-sided? Run the same test with one-sided alternative hypothesis (you can pick which direction makes more sense).
 
 Tip: this is something you can answer with the built-in help!
 
@@ -66,7 +56,7 @@ Q4.2.4 Then, also run Shapiro-Wilk test of normality (`shapiro.test`)
 
 For the regression tasks, find a continuous dependent variable and a number of independent variables
 
-Q4.3.1 Create a simple linear regression with `lm(y ~ x, data=data)` (where y is your dependent variable, x is one of your independent variables and the latter data is the name of your dataframe).
+Q4.3.1 Create a simple linear regression with `lm(y ~ x, data=nameofdataframe)` (where y is your dependent variable, x is one of your independent variables and nameofdataframe is the name of your dataframe).
 
 Q4.3.2 Assign the result of the linear model to a variable and run `summary` on that variable. What can you tell about the result?
 
@@ -79,10 +69,8 @@ Create a new binary variable (or use one you have already) to run logistic regre
 
 [Demo 4: Recap](https://youtu.be/ARZJluj_ehE){target="_blank"}
 
-
-## Course feedback UPDATE LINK!!
-Now that you made it this far, would you please take a few minutes and fill in the course feedback form [which you can find here](https://forms.gle/S8TddGUbJofkPHKNA). It would mean a lot to me if you did that and it shouldn't take too long. Thanks in advance!
-
+## Course feedback 
+Now that you made it this far, would you please take a few minutes and fill in the course feedback form [which you can find here](https://forms.gle/jvZA65cAXQuhVnNs9). It would mean a lot to me if you did that and it shouldn't take too long. Thanks in advance!
 
 ## Resources
 * [You can find the demo videos introducing new concepts and giving you tools to complete these exercises here](https://www.youtube.com/playlist?list=PLDDYJXmrJm8WjwEyPo12rOA1Gayxs2jMA)
